@@ -3,7 +3,7 @@
 A repository for my personal journey through Paul- @twostraws 100 Days of Swift.
 
 
-## 1.0 First steps in Swift
+## 1.0 First Steps In Swift
 **1.1 Variables**  
 Variables get their name because they can vary. No need to write the 'var' keyword again when changing the same variable.
 ```
@@ -61,12 +61,34 @@ let version: Double =  5.8
 let Awesomeness: Bool = true
 ```
 ## 2.0 Complex Data Types  
-**Arrays**
-**Sets**
-**Tuples**
-**Dictionaries**
-**Dictionary Default Values**
-**Enumerations**
-**Enum Associated Values**
-**Enum Raw Values**
+**2.1 Arrays**
+```
+```
+**2.2 Sets**
+```
+```
+**2.3 Tuples**
+```
+```
+**2.4 Arrays vs. Sets. vs. Tuples**
+```
+```
+**2.5 Dictionaries**
+```
+```
+**2.6 Dictionary Default Values**
+```
+```
+**2.7 Creating Empty Collections**
+```
+```
+**2.8 Enumerations**
+```
+```
+**2.9 Enum Associated Values**
+```
+```
+**2.10 Enum Raw Values**
+```
+```
 
