@@ -60,3 +60,13 @@ let year: Int = 2014
 let version: Double =  5.8
 let Awesomeness: Bool = true
 ```
+## 2.0 Complex Data Types  
+**Arrays**
+**Sets**
+**Tuples**
+**Dictionaries**
+**Dictionary Default Values**
+**Enumerations**
+**Enum Associated Values**
+**Enum Raw Values**
+
