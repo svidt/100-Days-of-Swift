@@ -12,7 +12,7 @@ let product = firstScore * secondScore // multiplication
 let divided = firstScore / secondScore // division
 
 
-// remainder after division. It calculates how many times a number can fit inside another, then returns the values of what's left. Foe example, we can set *secondScore* to **4**, and do *13 % secondScore*, we will get back **1**, because *4* fits into *13* three times with a remainder of *1*.
+// Remainder after division. It calculates how many times a number can fit inside another, then returns the values of what's left. Foe example, we can set *secondScore* to **4**, and do *13 % secondScore*, we will get back **1**, because *4* fits into *13* three times with a remainder of *1*.
 
 let remainder = 13 % secondScore
 
