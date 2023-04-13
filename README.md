@@ -60,6 +60,7 @@ let year: Int = 2014
 let version: Double =  5.8
 let Awesomeness: Bool = true
 ```
+
 ## 2.0 Complex Data Types  
 **2.1 Arrays**  
 Arrays are annotated using square brackets " [ ] " and count from 0, meaning the first value in an array is numbered 0 and so on.
@@ -165,7 +166,7 @@ enum Activity {
 
 let talking = Activity.talking(topic: "cooking")
 ```
-**2.10 Enum Raw Values**  
+**2.9.1 Enum Raw Values**  
 Raw values can sign numbers automatically. However you can also asign specific values and Swift with do the rest.
 ```
 enum Planet: Int {
