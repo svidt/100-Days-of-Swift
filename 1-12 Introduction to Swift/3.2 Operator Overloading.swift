@@ -1,7 +1,11 @@
-// Swift has a shortcut for combining one operator with an assignment. They each look like " + , - , * , / " but with an " = " attached to the end them. In the example, *score* 95, *score* -= 5 ( subtracts 5 points and assign it back to the variable *score*. It works on Strings as well.
+// Operator overloading means that what an operator does, depends on the values you use it with. For example, " + " can either give you the *sum* of two numbers, or attach two *strings*. Swift is a *type-safe language* which means it won't let you mix types. No adding of strings and integers!
 
-var score = 95
-score -= 5
+let meaningOfLife = 42
+let doubleMeaning = 42 + 42
 
-var quote = "The rain in Spain falls mainly on the "
-quote += "Spaniards"
+let fakers = "Fakers gonna "
+let action = fakers + "fake"
+
+let firstHalf = ["John", "Paul"]
+let secondHalf = ["George", "Ringo"]
+let beatles = firstHalf + secondHalf
