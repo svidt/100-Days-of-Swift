@@ -103,7 +103,7 @@ enum Activity {
 
 let talking = Activity.talking(topic: "cooking")
 ```
-**2.10 Enum Raw Values**  
+**2.9.1 Enum Raw Values**  
 Raw values can sign numbers automatically. However you can also asign specific values and Swift with do the rest.
 ```
 enum Planet: Int {
