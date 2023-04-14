@@ -1,3 +1,4 @@
+##4.1 Loops
 **4.1 For Loops**
 There are many kinds of loops, but they all have the same underlaying mechanism: run code repeatedly until a condition evaluates as false.  The most common loop in Swift is a *for* loop: it will loop over arrays and ranges, and each time the loop goes around it will pull out one item and assign it to a constant.
 ```
