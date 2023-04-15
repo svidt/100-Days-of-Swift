@@ -3,7 +3,7 @@
 A repository for my personal journey through @twostraws 100 Days of Swift® - 
 [Website](https://www.hackingwithswift.com/100)
 
-**1 - 12 : [Introduction To Swift](/1-12%20Introduction%20to%20Swift/README.md)**  
+**1 - 12 : [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)**  
 **13 - 15 : Consolidation I**  
 **16 - 22 : Starting iOS**  
 **23 : Consolidation II**  
