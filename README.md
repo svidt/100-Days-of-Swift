@@ -1,7 +1,31 @@
 # 100 Days of Swift
 2023 Svidt – 
-A repository for my personal journey through Paul- @twostraws 100 Days of Swift.
+A repository for my personal journey through @twostraws 100 Days of Swift® - 
+[Website](https://www.hackingwithswift.com/100)
 
+**1 - 12 : [Introduction To Swift](/1-12%20Introduction%20to%20Swift/README.md)**  
+**13 - 15 : Consolidation I**  
+**16 - 22 : Starting iOS**  
+**23 : Consolidation II**  
+**24 - 31 : Web views, user input, and Auto Layout**  
+**32 : Consolidation III**  
+**33 - 40 : Codable, buttons, and GCD**  
+**41 : Consolidation IV**  
+**42 - 49 : A whole new world**  
+**50 - 51 : Consolidation V**  
+**52 - 58 : Images and animation**  
+**59 : Consolidation VI**  
+**60 - 65 : Maps and bugs**  
+**66 : Consolidation VII**  
+**67 - 73 : Leveling up**  
+**74 : Consolidation VIII**  
+**75 - 81 : Beacons and bombs**  
+**82 : Consolidation IX**  
+**83 - 89 : Multipeer and motion**  
+**90 - 91 : Consolidation X**  
+**92 - 98 : The Final Countdown**  
+**99 : Consolidation XI**  
+**100 : Final Exam**  
 
 ## 1.0 First Steps In Swift
 **1.1 Variables**  
@@ -534,6 +558,4 @@ First you need to make a *variable* - you can't use *constants* with an **inout*
 ```
 var myNum = 10
 doubleInPlace(number: &myNum)
-
 ```
-
