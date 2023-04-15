@@ -10,7 +10,6 @@ Welcome to MyApp!
 Run this app inside a directory of images and
 MyApp will resize them all into thumbnails
 """
-
     print(message)
 }
 
@@ -87,7 +86,7 @@ square(numbers: 1, 2, 3, 4, 5)
 ```
 **5.8 Writing Throwing Functions**  
 Sometimes functions fail because they have bad input, or perhaps something went wrong internally. Swift lets you throw errors from functions by marking them as *throws* before their return type.  
-First we need to define an **enum** that describes the errors we can throw. These must always be based on Swift's existing *Error Types*
+First we need to define an **enum** that describes the errors we can throw. These must always be based on Swift's existing *Error Types*.
 ```
 enum PasswordError: Error {
     case obvious
