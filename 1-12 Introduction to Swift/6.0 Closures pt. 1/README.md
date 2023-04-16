@@ -65,5 +65,4 @@ Because there aren't any other parameters, we can eliminate the parentheses enti
 travel {
     print("I'm driving in my car")
 }
-
 ```
