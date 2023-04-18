@@ -15,6 +15,7 @@ tennis.name = "Lawn tennis"
 ```
 **8.2 Computed Properties**
 Swift has a different kind of property called a *computed* property - a property that runs code to figure out its value.  
+
 You can see that *olympicStatus* looks like a regular String, but it returns different values depending on the other properties.
 ```
 struct Sport {
@@ -37,6 +38,7 @@ print(chessBoxing.olympicStatus)
 ```
 **8.3 Property Observers**
 Property observers let you run code before or after any property changes. To demonstrate this, here's a *Progress* struct that tracks a task and a completion percentage.  
+
 Here Swift will print a message every time *amount* changes, and we can use a *didSet* property observer for that. This will run its code every time *amount* changes.
 ```
 struct Progress {
