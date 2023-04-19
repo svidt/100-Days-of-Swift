@@ -1,5 +1,5 @@
 ## 9.0 Access Control, Static Properties and Methods
-**9.1 Initializers**
+**9.1 Initializers**  
 Initializer are special Methods that provide different ways to create your Struct. All Structs come with one by default called their *memberwise initializer* - this asks you to provide a value for each property when you create the Struct.  
 
 For example: When we create one of those Structs, we must provide a username.
@@ -27,7 +27,7 @@ Now that the *initializer* accepts no parameters, you need to create the Struct 
 var user = User()
 user.username = "twostraws"
 ```
-**9.2 Referring to the Current Instance**
+**9.2 Referring to the Current Instance**  
 Inside Methods, you get a special constant called **self**, which points to whatever instance of the struct is currently being used. This **self** value is particularly useful when you create initializers that have the same parameter names as your property.  
 
 For example, lets say you create a struct named *Person* with a *name* property, then tried to write an initializer that accepted a *name* parameter, **self** helps you distinguish between the property and the parameter - **self.name** refers to the property, whereas **name** refert to the parameter.
@@ -41,7 +41,7 @@ struct Person {
     }
 }
 ```
-**9.3 Lazy Properties**
+**9.3 Lazy Properties**  
 As a performance optimization, Swift lets you create some properties only when they are needed. For example, consider this *FamilyTree* Struct - it doesn't do much, but in theory creating a family tree for someone takes a long time.
 ```
 struct FamilyTree {
@@ -80,7 +80,7 @@ If you want to see the "Creating family tree!" message, you need to access the p
 ```
 ed.familyTree
 ```
-**9.4 Static Properties and Methods**
+**9.4 Static Properties and Methods**  
 So far all properties and methods you have created all belong to individual instances of a struct, which means that if you had a *Student* struct you could create several student instances - each with their own properties and methods.  
 
 Here you can ask Swift to share specific properties and methods across all instances of the struct by declaring them as **static**.  
@@ -101,7 +101,7 @@ Because the *classSize* property belongs to the struct itself rather than instan
 ```
 print(Student.classSize)
 ```
-**9.5 Access Controll**
+**9.5 Access Controll**  
 Access control lets you restrict which code can use properties and methods. This is important because you might want to stop people reading a property directly.  
 
 In this example, adding the keyword **private** to the variable *id*, means only methods inside *Person* struct can read the property *id*.
