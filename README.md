@@ -7,31 +7,41 @@ A repository for my personal journey through @twostraws 100 Days of Swift® -
 [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
 - [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
 - [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
-- [3.0 Operators and Conditions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/3.0%20Operators%20and%20Conditions)
+- [3.0 Operators and Conditions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/3.0%20Operators%20and%20Conditions)  
+- [4.0 Loops](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/4.0%20Loops)  
+- [5.0 Functions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/5.0%20Functions)  
+- [6.0 Closures pt. 1](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/6.0%20Closures%20pt.%201)  
+- [7.0 Closures pt. 2](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/7.0%20Closures%20pt.%202)  
+- [8.0 Structs, Properties and Methods](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/8.0%20Structs%2C%20Properties%20and%20Methods)  
+- [9.0 Access Control, Static Properties and Methods](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/9.0%20Access%20Control%2C%20Static%20Properties%20and%20Methods)  
+- [10.0 Classes and Inheritance](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/10.0%20Classes%20and%20Inheritance)  
+- [11.0 Protocols and Extentions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/11.0%20Protocols%20and%20Extentions)  
+- [12.0 Optionals, Unwrapping and Typecasting](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/12.0%20Optionals%20Unwrapping%20and%20Typecasting)  
 
-Day 13 - 16  
-**Consolidation I**   
-**16 - 22 : Starting iOS**  
-**23 : Consolidation II**  
-**24 - 31 : Web views, user input, and Auto Layout**  
-**32 : Consolidation III**  
-**33 - 40 : Codable, buttons, and GCD**  
-**41 : Consolidation IV**  
-**42 - 49 : A whole new world**  
-**50 - 51 : Consolidation V**  
-**52 - 58 : Images and animation**  
-**59 : Consolidation VI**  
-**60 - 65 : Maps and bugs**  
-**66 : Consolidation VII**  
-**67 - 73 : Leveling up**  
-**74 : Consolidation VIII**  
-**75 - 81 : Beacons and bombs**  
-**82 : Consolidation IX**  
-**83 - 89 : Multipeer and motion**  
-**90 - 91 : Consolidation X**  
-**92 - 98 : The Final Countdown**  
-**99 : Consolidation XI**  
-**100 : Final Exam**  
+**Day 13 - 16**  
+Consolidation I   
+**Day 16 - 22**  
+Starting iOS  
+23 : Consolidation II  
+24 - 31 : Web views, user input, and Auto Layout  
+32 : Consolidation III  
+33 - 40 : Codable, buttons, and GCD  
+41 : Consolidation IV  
+42 - 49 : A whole new world  
+50 - 51 : Consolidation V  
+52 - 58 : Images and animation  
+59 : Consolidation VI  
+60 - 65 : Maps and bugs  
+66 : Consolidation VII  
+67 - 73 : Leveling up  
+74 : Consolidation VIII  
+75 - 81 : Beacons and bombs  
+82 : Consolidation IX  
+83 - 89 : Multipeer and motion  
+90 - 91 : Consolidation X  
+92 - 98 : The Final Countdown  
+99 : Consolidation XI  
+100 : Final Exam  
 
 ## [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)
 1.1 Variables  
@@ -64,7 +74,7 @@ Day 13 - 16
 3.8 Switch Statements  
 3.9 Range Operators  
 
-## [4.1 Loops](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/4.0%20Loops)
+## [4.0 Loops](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/4.0%20Loops)
 4.1 For Loops  
 4.2 While Loops  
 4.3 Repeat Loops  
