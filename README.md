@@ -1,9 +1,9 @@
 # 100 Days of Swift
-_ _2023 Svidt_ _  
+**2023** _Svidt_  
 A repository for my personal journey through Paul Hudson's 100 Days of Swift®  
 
-Day 1 - 12  
-**[Introduction To Swift](/1-12%20Introduction%20to%20Swift/)**  
+**Day 1 - 12**  
+[Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
 - [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
 - [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
 - [3.0 Operators and Conditions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/3.0%20Operators%20and%20Conditions)  
