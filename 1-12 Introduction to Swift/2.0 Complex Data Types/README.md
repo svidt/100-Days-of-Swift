@@ -12,6 +12,12 @@ let ringo = "Ringo Starr"
 let beatles = [john, paul, george, ringo]
 beatles[1]
 ```
+Both of following examples are correct. The second are just two characters shorter, and therefore more often used.
+```
+var songs: [String] = []
+
+var songs = [String]()
+```
 **2.2 Sets**  
 Sets are collection of values just like Arrays, except for  two big differences. Number one, Sets store items in no specific order, meaning you can't read an item using numeric positions like you can with an Array. Second, all values must be unique. Any dublicate item will be ignored.
 ```
