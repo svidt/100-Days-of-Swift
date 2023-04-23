@@ -7,6 +7,8 @@ A repository for my personal journey through @twostraws 100 Days of Swift® -
 [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
 - [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
 - [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
+- [3.0 Operators and Conditions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/3.0%20Operators%20and%20Conditions)
+
 Day 13 - 16  
 **Consolidation I**   
 **16 - 22 : Starting iOS**  
