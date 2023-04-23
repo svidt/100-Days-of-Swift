@@ -1,7 +1,8 @@
 # 100 Days of Swift
 2023 Svidt – 
-A repository for my personal journey through @twostraws 100 Days of Swift® - 
+A repository for my personal journey through @twostraws 100 Days of Swift® 
 [Website](https://www.hackingwithswift.com/100)
+I am solely doing this for my own learning.  All credit goes to @twostraws, 100 Days of Swift®.
 
 **Day 1 - 12**  
 [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
