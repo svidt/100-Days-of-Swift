@@ -4,6 +4,8 @@ A repository for my personal journey through @twostraws 100 Days of Swift® -
 [Website](https://www.hackingwithswift.com/100)
 
 **1 - 12 : [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)**  
+[1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)
+[2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)
 **13 - 15 : Consolidation I**  
 **16 - 22 : Starting iOS**  
 **23 : Consolidation II**  
@@ -120,11 +122,11 @@ A repository for my personal journey through @twostraws 100 Days of Swift® -
 10.7 Mutability  
 
 ## [11.0 Protocols and Extentions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/11.0%20Protocols%20and%20Extentions)
-11.1 Protocols
-11.2 Protocol Inheritance
-11.3 Extentions
-11.4 Protocol Extenstions
-10.5 Protocol-Oriented Programming
+11.1 Protocols  
+11.2 Protocol Inheritance  
+11.3 Extentions  
+11.4 Protocol Extenstions  
+10.5 Protocol-Oriented Programming  
 
 
 ## [12.0 Optionals, Unwrapping and Typecasting](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/12.0%20Optionals%20Unwrapping%20and%20Typecasting)
