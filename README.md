@@ -3,10 +3,13 @@
 A repository for my personal journey through @twostraws 100 Days of Swift® - 
 [Website](https://www.hackingwithswift.com/100)
 
-**12 days: [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)**  
-- [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
-- [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
+-- 1 --
+**12 days: [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)**
+    - [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
+    - [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
+-- 13 --
 **3 days: Consolidation I**  
+-- 16 --
 **16 - 22 : Starting iOS**  
 **23 : Consolidation II**  
 **24 - 31 : Web views, user input, and Auto Layout**  
