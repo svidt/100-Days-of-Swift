@@ -27,7 +27,7 @@ A repository for my personal journey through @twostraws 100 Days of Swift® -
 **99 : Consolidation XI**  
 **100 : Final Exam**  
 
-## 1.0 First Steps In Swift
+## [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)
 1.1 Variables  
 1.2 Strings and Integers  
 1.3 Multi-line Strings  
