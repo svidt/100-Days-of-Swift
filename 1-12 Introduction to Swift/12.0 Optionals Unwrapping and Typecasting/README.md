@@ -159,4 +159,4 @@ for pet in pets {
     }
 }
 ```
-This uses the keyword **as?**, which returns an optional: it will be **nil** if the typecast failed, or a converted type otherwise.
+This uses the keyword **as?**, which returns an optional: it will be **nil** if the typecast failed - otherwise a converted type.
