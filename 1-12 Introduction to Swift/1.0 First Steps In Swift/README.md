@@ -28,10 +28,16 @@ lines
 """
 ```
 **1.4 Doubles and Booleans**  
-A Double is short for "double-precision floating-point number" and is used when working with any kind of decimal number. Boolean can be either True or False, not both!
+There are two data types to store fractional numbers. **Float** and **Double**  
+
+The official Apple recommendation is to always use *Double* since it has the most accuracy.  
+
+A Double is short for "double-precision floating-point number" and is used when working with any kind of decimal number.  
+
+Boolean can be either True or False, not both!
 ```
-var pi = 3.141
-var awesome = true
+var pi: Double = 3.141
+var awesome: Bool = true
 ```
 **1.5 String Interpolation**  
 An Interpolation references a previously defined Variable. You can use the same Interpolation as many times as you want.
