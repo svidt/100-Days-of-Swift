@@ -1,7 +1,6 @@
 # 100 Days of Swift
 __2023 Svidt__  
 A repository for my personal journey through Paul Hudson's 100 Days of Swift®  
-I am solely doing this for my own learnings - all credit goes to @twostraws [Website](https://www.hackingwithswift.com/100)
 
 **Day 1 - 12**  
 [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
