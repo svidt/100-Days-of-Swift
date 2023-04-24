@@ -4,3 +4,18 @@
 
 let str = "5"
 let num = Int(str)!
+
+// Here's another example:
+func yearAlbumReleased(name: String) -> Int? {
+    if name == "Taylor Swift" { return 2006 }
+    if name == "Fearless" { return 2008 }
+    return nil
+}
+
+var year = yearAlbumReleased(name: "Taylor Swift")
+
+if year == nil {
+    print("There was an error")
+} else {
+    print("It was released in \(year!)")
+}

@@ -7,3 +7,4 @@ if let unwrapped = name {
 }
 
 // If *name* holds a string, it will be put inside the *unwrapped* as a regular string. If *name* is empty, the *else* statement will be run.
+
