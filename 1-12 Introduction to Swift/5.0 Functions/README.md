@@ -44,6 +44,14 @@ func sayHello(to name: String) {
 
 sayHello(to: "Taylor")
 ```
+Another example is:
+```
+func countLetters(in string: String) {
+    print("The string \(string) has \(string.count) letters.")
+}
+
+countLetters(in: "Hello")
+```
 **5.5 Omitting Parameter Labels**  
 By using an underscore " _ " as your external paramter name, we can avoid having to send any parameter name - just like the function: *print("Hello, GitHub!")*. Be careful, as it can make your code less readable.
 ```
