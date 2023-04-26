@@ -5,18 +5,20 @@
 //  Created by Svidt on 26/04/2023.
 //
 
+
 import UIKit
 
 class ViewController: UITableViewController {
     
     var pictures = [String]()
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -27,7 +29,7 @@ class ViewController: UITableViewController {
             }
         }
         
-        print(pictures)
+        print(pictures.sort())
         
     }
     
@@ -45,9 +47,11 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
+            vc.currentImage = pictures.index(indexPath.row, offsetBy: 1)
+            vc.totalImage = pictures.count
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-
+    
 }
 
