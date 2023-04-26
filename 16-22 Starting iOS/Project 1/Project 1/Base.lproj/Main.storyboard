@@ -3,10 +3,40 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="ZRh-gR-1ia">
+            <objects>
+                <viewController storyboardIdentifier="Detail" id="iAg-D5-SNa" customClass="DetailViewController" customModule="Project_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f4E-gS-gFQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4DJ-NZ-qec">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="32G-sU-fUi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4DJ-NZ-qec" firstAttribute="top" secondItem="f4E-gS-gFQ" secondAttribute="topMargin" constant="-59" id="5vq-YC-q01"/>
+                            <constraint firstItem="4DJ-NZ-qec" firstAttribute="leading" secondItem="32G-sU-fUi" secondAttribute="leading" id="ACx-iL-qzS"/>
+                            <constraint firstItem="4DJ-NZ-qec" firstAttribute="centerX" secondItem="f4E-gS-gFQ" secondAttribute="centerX" id="TYL-c3-zPs"/>
+                            <constraint firstItem="4DJ-NZ-qec" firstAttribute="centerY" secondItem="f4E-gS-gFQ" secondAttribute="centerY" id="uWK-dX-dFw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="4DJ-NZ-qec" id="QRk-yu-R03"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BxH-fr-nWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1571.7557251908397" y="-156.33802816901408"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="lyi-em-Lbg">
             <objects>
