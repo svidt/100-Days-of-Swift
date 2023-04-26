@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Project 1
 //
-//  Created by Kristian Emil Hansen Svidt on 26/04/2023.
+//  Created by Svidt on 26/04/2023.
 //
 
 import UIKit
