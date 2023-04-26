@@ -3,64 +3,88 @@
 A repository for my personal journey through Paul Hudson's 100 Days of Swift®  
 
 **Day 1 - 12**  
-[Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
-- [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
-- [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
-- [3.0 Operators and Conditions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/3.0%20Operators%20and%20Conditions)  
-- [4.0 Loops](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/4.0%20Loops)  
-- [5.0 Functions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/5.0%20Functions)  
-- [6.0 Closures pt. 1](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/6.0%20Closures%20pt.%201)  
-- [7.0 Closures pt. 2](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/7.0%20Closures%20pt.%202)  
-- [8.0 Structs, Properties and Methods](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/8.0%20Structs%2C%20Properties%20and%20Methods)  
-- [9.0 Access Control, Static Properties and Methods](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/9.0%20Access%20Control%2C%20Static%20Properties%20and%20Methods)  
-- [10.0 Classes and Inheritance](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/10.0%20Classes%20and%20Inheritance)  
-- [11.0 Protocols and Extentions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/11.0%20Protocols%20and%20Extentions)  
-- [12.0 Optionals, Unwrapping and Typecasting](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/12.0%20Optionals%20Unwrapping%20and%20Typecasting)  
+- [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
+  - [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
+  - [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
+  - [3.0 Operators and Conditions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/3.0%20Operators%20and%20Conditions)  
+  - [4.0 Loops](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/4.0%20Loops)  
+  - [5.0 Functions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/5.0%20Functions)  
+  - [6.0 Closures pt. 1](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/6.0%20Closures%20pt.%201)  
+  - [7.0 Closures pt. 2](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/7.0%20Closures%20pt.%202)  
+  - [8.0 Structs, Properties and Methods](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/8.0%20Structs%2C%20Properties%20and%20Methods)  
+  - [9.0 Access Control, Static Properties and Methods](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/9.0%20Access%20Control%2C%20Static%20Properties%20and%20Methods)  
+  - [10.0 Classes and Inheritance](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/10.0%20Classes%20and%20Inheritance)  
+  - [11.0 Protocols and Extentions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/11.0%20Protocols%20and%20Extentions)  
+  - [12.0 Optionals, Unwrapping and Typecasting](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/12.0%20Optionals%20Unwrapping%20and%20Typecasting)  
 
 **Day 13 - 15**  
-Consolidation I   
+- Consolidation I
+
 **Day 16 - 22**  
-Starting iOS  
+- Starting iOS  
+  - Project 1  
+  - Project 2  
+  - Project 3  
+  
 **Day 23**  
-Consolidation II  
+- Consolidation II
+
 **Day 24 - 31**  
-Web views, user input, and Auto Layout  
+- Web Views, User Input, and Auto Layout 
+
 **Day 32**  
-Consolidation III  
+- Consolidation III  
+
 **Day 33 - 40**  
-Codable, buttons, and GCD  
+- Codable, Buttons, and GCD  
+
 **Day 41**  
-Consolidation IV  
+- Consolidation IV  
+
 **Day 42 - 49**  
-A whole new world  
+- A Whole New World  
+
 **Day 50 - 51**  
-Consolidation V  
+- Consolidation V  
+
 **Day 52 - 58**  
-Images and animation  
+- Images and Animation  
+
 **Day 59**  
-Consolidation VI  
+- Consolidation VI  
+
 **Day 60 - 65**  
-Maps and bugs  
+- Maps and Bugs  
+
 **Day 66**  
-Consolidation VII  
+- Consolidation VII  
+
 **Day 67 - 73**  
-Leveling up  
+- Leveling Up  
+
 **Day 74**  
-Consolidation VIII  
+- Consolidation VIII  
+
 **Day 75 - 81**  
-Beacons and bombs  
+- Beacons and Bombs  
+
 **Day 82**  
-Consolidation IX  
+- Consolidation IX  
+
 **Day 83 - 89**  
-Multipeer and motion  
+- Multipeer and Motion  
+
 **Day 90 - 91**  
-Consolidation X  
+- Consolidation X  
+
 **Day 92 - 98**  
-The Final Countdown  
+- The Final Countdown  
+
 **Day 99**  
-Consolidation XI  
+- Consolidation XI  
+
 **Day 100**  
-Final Exam  
+- Final Exam  
 
 ## [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)
 1.1 Variables  
