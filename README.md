@@ -20,68 +20,47 @@ A repository for my personal journey through Paul Hudson's 100 Days of Swift®
 **Day 13 - 15**  
 - Consolidation I
 
-**Day 16 - 22**  
+**Day 16 - 24**  
 - Starting iOS  
   - Project 1  
   - Project 2  
   - Project 3  
   
-**Day 23**  
+**Day 25**  
 - Consolidation II
 
-**Day 24 - 31**  
-- Web Views, User Input, and Auto Layout 
+**Day 26 - 34**  
+- Expanding Your Skills
 
-**Day 32**  
+**Day 35**  
 - Consolidation III  
 
-**Day 33 - 40**  
-- Codable, Buttons, and GCD  
+**Day 36 - 46**  
+- Scaling Up To Bigger Apps 
 
-**Day 41**  
+**Day 47 - 48**  
 - Consolidation IV  
 
-**Day 42 - 49**  
-- A Whole New World  
+**Day 49 - 59**  
+- Focus On Data 
 
-**Day 50 - 51**  
+**Day 60 - 61**  
 - Consolidation V  
 
-**Day 52 - 58**  
-- Images and Animation  
+**Day 62 - 76**  
+- Views And View Controllers  
 
-**Day 59**  
+**Day 77-78**  
 - Consolidation VI  
 
-**Day 60 - 65**  
-- Maps and Bugs  
+**Day 79 - 94**  
+- Controlling UI Flow 
 
-**Day 66**  
+**Day 95**  
 - Consolidation VII  
 
-**Day 67 - 73**  
-- Leveling Up  
-
-**Day 74**  
-- Consolidation VIII  
-
-**Day 75 - 81**  
-- Beacons and Bombs  
-
-**Day 82**  
-- Consolidation IX  
-
-**Day 83 - 89**  
-- Multipeer and Motion  
-
-**Day 90 - 91**  
-- Consolidation X  
-
-**Day 92 - 98**  
-- The Final Countdown  
-
-**Day 99**  
-- Consolidation XI  
+**Day 96 - 99**  
+- One Last Project  
 
 **Day 100**  
 - Final Exam  
