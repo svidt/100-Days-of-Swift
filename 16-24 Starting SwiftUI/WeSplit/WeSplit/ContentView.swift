@@ -20,7 +20,7 @@ struct ContentView: View {
     let tipPercentages = [10, 15, 20, 25, 0]
     
     var totalPerPerson: Double {
-        let peopleCount = Double (numberOfPeople + 2)
+        let peopleCount = Double(numberOfPeople + 2)
         let tipSelection = Double(tipPercentage)
         
         let tipValue = checkAmount / 100 * tipSelection
@@ -28,6 +28,22 @@ struct ContentView: View {
         let amountPerPerson = grandTotal / peopleCount
         
         return amountPerPerson
+    }
+    
+    var costTip: Double {
+        let tipSelection = Double(tipPercentage)
+        let tipAdded = checkAmount / 100 * tipSelection - tipSelection
+        let totalCost = tipSelection + tipAdded
+        
+        return totalCost
+    }
+
+    var costCombined: Double {
+        let tipSelection = Double(tipPercentage)
+        let tipAdded = checkAmount / 100 * tipSelection
+        let totalCost = tipAdded + checkAmount
+        
+        return totalCost
     }
     
     var body: some View {
@@ -42,6 +58,7 @@ struct ContentView: View {
                             Text("\($0) people")
                         }
                     }
+                    .pickerStyle(.navigationLink)
                 }
                 
                 Section {
@@ -57,12 +74,22 @@ struct ContentView: View {
                 
                 Section {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                } header: {
+                    Text("Amount per person")
+                } footer: {
+                    Text("""
+                         \(costTip, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) tip
+                         \(costCombined, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) total
+                        """)
+
                 }
+                
             }
             .navigationTitle("WeSplit")
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
+                    
                     Button("Done") {
                         amountIsFocued = false
                     }
