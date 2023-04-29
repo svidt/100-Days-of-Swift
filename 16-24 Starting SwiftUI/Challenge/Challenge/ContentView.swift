@@ -77,8 +77,8 @@ struct ContentView: View {
                 }
                 
                 .navigationTitle("Unit Conversion")
-//                .scrollContentBackground(.hidden)
-//                .background(Color.yellow)
+                .scrollContentBackground(.hidden)
+                .background(Color.yellow)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
