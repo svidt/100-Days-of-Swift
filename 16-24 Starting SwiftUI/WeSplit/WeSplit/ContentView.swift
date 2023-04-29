@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var numberOfPeople = 0
     @State private var tipPercentage = 20
     
-    @FocusState private var amountIsFocued: Bool
+    @FocusState private var amountIsFocused: Bool
     
     let tipPercentages = [10, 15, 20, 25, 0]
     
@@ -52,7 +52,7 @@ struct ContentView: View {
                 Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
-                        .focused($amountIsFocued)
+                        .focused($amountIsFocused)
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2..<11) {
                             Text("\($0) people")
@@ -91,7 +91,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button("Done") {
-                        amountIsFocued = false
+                        amountIsFocused = false
                     }
                 }
             }
