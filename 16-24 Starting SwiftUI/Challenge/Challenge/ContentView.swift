@@ -14,9 +14,9 @@ struct ContentView: View {
     @State private var userOutput = Double(0)
     @State private var userOutputMethod = String()
     
-    let units = ["Celsius", "Fahrenheit", "Kelvin"]
-    
     @FocusState private var isFocused: Bool
+    
+    let units = ["Celsius", "Fahrenheit", "Kelvin"]
     
     func calculate() {
         if userInputMethod == userOutputMethod {
@@ -47,7 +47,7 @@ struct ContentView: View {
             VStack {
                 Form {
                     Section {
-                        TextField("Choose what metric to calculate", value: $userInput, format: .number)
+                        TextField("Choose What Metric To Calculate", value: $userInput, format: .number)
                             .keyboardType(.numberPad)
                             .focused($isFocused)
                         Picker("Choose your metric", selection: $userInputMethod) {
@@ -59,7 +59,6 @@ struct ContentView: View {
                     } header: {
                         Text("Choose your input")
                     }
-
                     Section {
                         Picker("Hello", selection: $userOutputMethod) {
                             ForEach(units, id: \.self) {
@@ -73,9 +72,7 @@ struct ContentView: View {
                     } header: {
                         Text("Choose your output")
                     }
-                    
                 }
-                
                 .navigationTitle("Unit Conversion")
                 .scrollContentBackground(.hidden)
                 .background(Color.yellow)
@@ -91,14 +88,9 @@ struct ContentView: View {
                         .buttonBorderShape(.capsule)
                     }
                 }
-                
-                
             }
-            
-            
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
