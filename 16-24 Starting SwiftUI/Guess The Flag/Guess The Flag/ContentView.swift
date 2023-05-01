@@ -9,52 +9,88 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showingAlert = false
+    @State private var showingScore: Bool = false
+    @State private var scoreTitle: String = "Have a guess"
+    
+    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
+    @State private var correctAnswer = Int.random(in: 0...2)
+    
+    @State private var score = 0
     
     var body: some View {
+        
         ZStack {
-            VStack(spacing: 0) {
-                LinearGradient(gradient: Gradient(colors: [.yellow, .white]), startPoint: .top, endPoint: .bottomLeading)
-                
-                //                AngularGradient(gradient: Gradient(colors: [.red, .orange, .yellow, .white]), center: .center)
-                
-                
-                //                RadialGradient(gradient: Gradient(colors: [.white, .orange]), center: .bottom, startRadius: 50, endRadius: 500)
-                
-                //                LinearGradient(gradient: Gradient(stops: [
-                //                    Gradient.Stop(color: .yellow, location: 0.75),
-                //                    Gradient.Stop(color: .orange, location: 1)
-                //                ]), startPoint: .top, endPoint: .bottom)
-                
-            }
             
-            HStack {
+//            RadialGradient(stops: [
+//                .init(color: Color(red: 0.8, green: 0.5, blue: 0.5), location: 0.1),
+//                .init(color: Color(red: 0.2, green: 0.3, blue: 0.8), location: 0.5)
+//            ], center: .bottom, startRadius: 100, endRadius: 800)
+//            .ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .topTrailing, endPoint: .bottomLeading).ignoresSafeArea()
+            
+            VStack {
+                Spacer()
                 
-                Text("Primary")
-                    .foregroundColor(.primary)
-                    .padding(25)
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(25)
-                Text("Secondary")
-                    .foregroundStyle(.secondary)
-                    .padding()
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(25)
-                Button("Delete", role: .destructive) {
-                    print("deleted")
-                    showingAlert = true
-                }
-                .buttonStyle(.borderedProminent)
-                .alert("Important Message", isPresented: $showingAlert) {
-                    Button("Cancel", role: .cancel) { }
-                    Button("Delete", role: .destructive) { }
-                } message: {
-                    Text("Please read this.")
-                }
+                Text("Guess the flag").font(.largeTitle.bold()).foregroundStyle(.white)
                 
+                VStack(spacing: 15) {
+                    
+                    VStack {
+                        
+                        Text("Tap the flag of").font(.subheadline.weight(.heavy))
+                        
+                        Text(countries[correctAnswer]).font(.largeTitle.weight(.semibold))
+                        
+                    }.foregroundStyle(.white)
+                    
+                    ForEach(0..<3) { number in
+                        Button {
+                            flagTapped(number)
+                        } label: {
+                            Image(countries[number])
+                                .renderingMode(.original)
+    //                            .clipShape(Capsule())
+                                .cornerRadius(20)
+                                .shadow(color: .white, radius: 1)
+                        }
+                    }
+                    
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 50)
+                .background(.thinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+                Spacer()
+                Spacer()
+                Text("Score: \(score)").font(.title3.bold()).foregroundStyle(.secondary)
+                Text(scoreTitle).font(.title2.bold()).foregroundStyle(.secondary)
+                Spacer()
             }
+            .padding(25)
+            
         }
-        .ignoresSafeArea()
+        .alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: askQuestion)
+        } message: {
+            Text("Your score is \(score)")
+        }
+        
+    }
+    
+    func flagTapped(_ number: Int) {
+        if number == correctAnswer {
+            scoreTitle = "Correct"
+            score += 1
+        } else {
+            scoreTitle = "Wrong"
+        }
+        showingScore = true
+    }
+    
+    func askQuestion() {
+        countries.shuffle()
+        correctAnswer = Int.random(in: 0...2)
     }
 }
 
