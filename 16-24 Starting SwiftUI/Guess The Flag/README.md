@@ -2,7 +2,7 @@
 
 Key take-aways: linear, radial and angular _gradients_, _colors_, _roles_ and _alerts_.
 
-#Linear Gradient#  
+**Linear Gradient**   
 ```
 LinearGradient(gradient: Gradient(stops: [
 Gradient.Stop(color: .yellow, location: 0.75),
@@ -10,16 +10,16 @@ Gradient.Stop(color: .orange, location: 1)
 ]), startPoint: .top, endPoint: .bottom)
 ```
 
-##Radial Gradient##  
+**Radial Gradient**  
 ```
 RadialGradient(gradient: Gradient(colors: [.white, .orange]), center: .bottom, startRadius: 50, endRadius: 500)
 ```
-##Angular Gradient##  
+**Angular Gradient** 
 ```
 AngularGradient(gradient: Gradient(colors: [.red, .orange, .yellow, .white]), center: .center)
 ```
 
-##Alert##  
+**Alert**  
 ```
 @State private var showingAlert = false
 
