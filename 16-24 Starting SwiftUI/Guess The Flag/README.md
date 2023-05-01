@@ -33,10 +33,10 @@ Button("Delete", role: .destructive) {
 } message: {
     Text("Please read this.")
 }
-´´´
+```
 
-#<!--
-#<p align="center">
+<!--
+<p align="center">
 #<img src="" width="350">
 #</p>
 #-->
