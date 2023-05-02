@@ -34,9 +34,6 @@ Button("Delete", role: .destructive) {
     Text("Please read this.")
 }
 ```
-
-<!--
 <p align="center">
 <img src="Screenshot.png" width="350">
 </p>
--->
