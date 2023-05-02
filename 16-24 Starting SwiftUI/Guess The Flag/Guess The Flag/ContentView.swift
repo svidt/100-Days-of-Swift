@@ -21,11 +21,25 @@ struct ContentView: View {
         
         ZStack {
             
-//            RadialGradient(stops: [
-//                .init(color: Color(red: 0.8, green: 0.5, blue: 0.5), location: 0.1),
-//                .init(color: Color(red: 0.2, green: 0.3, blue: 0.8), location: 0.5)
-//            ], center: .bottom, startRadius: 100, endRadius: 800)
-//            .ignoresSafeArea()
+// // Providede by AI
+//            RadialGradient(
+//                            gradient: Gradient(colors: [
+//                                Color(
+//                                    red: 64/255,
+//                                    green: 0/255,
+//                                    blue: 64/255),
+//                                Color(red: 200/255,
+//                                      green: 0/255,
+//                                      blue: 200/255
+//                                     )
+//                            ]),
+//                            center: .center,
+//                            startRadius: 0,
+//                            endRadius: UIScreen.main.bounds.width
+//                        )
+//                        .ignoresSafeArea()
+
+            
             LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .topTrailing, endPoint: .bottomLeading).ignoresSafeArea()
             
             VStack {
