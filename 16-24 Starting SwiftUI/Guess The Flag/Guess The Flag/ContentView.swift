@@ -7,6 +7,29 @@
 
 import SwiftUI
 
+struct Watermark: ViewModifier {
+    var text: String
+    
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottomTrailing) {
+            content
+            Text(text)
+                .font(.caption)
+                .foregroundColor(.white)
+                .padding(5)
+                .background(Color.black)
+                .clipShape(Capsule())
+        }
+    }
+}
+
+extension View {
+    func watermarked(with text: String) -> some View {
+        self.modifier(Watermark(text: text))
+    }
+}
+
+
 struct ContentView: View {
     
     @State private var showingScore: Bool = false
@@ -18,6 +41,8 @@ struct ContentView: View {
     
     @State private var score = 0
     @State private var totalTries = 3
+    
+    @State private var helpAdded: Bool = false
     
     var body: some View {
         
@@ -43,10 +68,19 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .renderingMode(.original)
-                                .cornerRadius(20)
-                                .shadow(color: .white, radius: 1)
+                            if helpAdded {
+                                Image(countries[number])
+                                    .renderingMode(.original)
+                                    .cornerRadius(20)
+                                    .shadow(color: .white, radius: 1)
+                                    .watermarked(with: countries[number])
+                            } else {
+                                Image(countries[number])
+                                    .renderingMode(.original)
+                                    .cornerRadius(20)
+                                    .shadow(color: .white, radius: 1)
+                            }
+                            
                         }
                     }
                 }
@@ -59,11 +93,18 @@ struct ContentView: View {
                 Spacer()
                 Text("Score: \(score)").font(.title3.bold()).foregroundStyle(.secondary)
                 Text("Chances: \(totalTries)").font(.title3.bold()).foregroundColor(.secondary)
-                Text(scoreTitle).font(.title2.bold()).foregroundStyle(.secondary).padding(10)
+//                Text(scoreTitle).font(.title2.bold()).foregroundStyle(.secondary).padding(10)
+//                Spacer()
                 Spacer()
+                
+                Button(action: {
+                    helpAdded.toggle()
+                }) {
+                    Image(systemName: "questionmark.circle").foregroundColor(.blue)
+                }
+
             }
             .padding(25)
-            
         }
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
@@ -100,10 +141,10 @@ struct ContentView: View {
         score = 0
         totalTries = 3
     }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
