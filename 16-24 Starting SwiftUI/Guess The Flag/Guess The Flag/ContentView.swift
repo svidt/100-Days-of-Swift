@@ -40,7 +40,7 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     
     @State private var score = 0
-    @State private var totalTries = 3
+    @State private var totalTries = 2
     
     @State private var helpAdded: Bool = false
     
@@ -91,8 +91,8 @@ struct ContentView: View {
                 
                 Spacer()
                 Spacer()
-                Text("Score: \(score)").font(.title3.bold()).foregroundStyle(.secondary)
-                Text("Chances: \(totalTries)").font(.title3.bold()).foregroundColor(.secondary)
+                Text("Score: \(score)").font(.title3.bold()).foregroundStyle(.black)
+                Text("Chances: \(totalTries + 1)").font(.title3.bold()).foregroundColor(.black)
 //                Text(scoreTitle).font(.title2.bold()).foregroundStyle(.secondary).padding(10)
 //                Spacer()
                 Spacer()
@@ -122,7 +122,7 @@ struct ContentView: View {
             
         } else if totalTries < 1 {
             scoreTitle = "Too bad"
-            scoreSubtitle = "Better luck next time. Your score is \(score)"
+            scoreSubtitle = "Better luck next time. Your score was \(score)"
             resetAll()
         } else {
             totalTries -= 1
@@ -139,7 +139,7 @@ struct ContentView: View {
     
     func resetAll() {
         score = 0
-        totalTries = 3
+        totalTries = 2
     }
 }
 

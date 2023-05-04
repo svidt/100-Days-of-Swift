@@ -3,7 +3,8 @@
 Key take-aways: linear, radial and angular _gradients_, _colors_, _roles_ and _alerts_.
 
 <p align="center">
-<img src="Screenshot.png" width="350">
+<img src="Screenshot 1.png" width="350">
+<img src="Screenshot 2.png" width="350">
 </p>
 
 **Linear Gradient**   
