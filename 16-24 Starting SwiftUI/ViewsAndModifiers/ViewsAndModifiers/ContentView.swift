@@ -46,7 +46,9 @@ struct ButtonStyle: ViewModifier {
 
 struct ContentView: View {
     
+    @State private var numberToCalculate = 0
     @State private var tiggleToggle = false
+    @State private var randNum = 0
     
     var body: some View {
         VStack {
@@ -68,9 +70,46 @@ struct ContentView: View {
             CapsuleTextGreen(text: "Hello, how are you today")
             CapsuleTextBlue(text: "Hi, i'm good thank you")
             CapsuleTextBlue(text: "How are you?")
+            
+            Spacer()
+            
+            Button(action: {
+                tiggleToggle.toggle()
+            }, label: {
+                VStack {
+                    Image(systemName: "play.fill")
+                        .padding(5)
+                    Text("Play")
+                }
+            })
+            
+            
+            Spacer()
+            VStack {
+                Text(String(randNum))
+                Button("Random Number") {
+                    randNum = Int.random(in: 1...100)
+                }
+                HStack {
+                    Text(String(numberToCalculate))
+                    
+                    Button("hello") {
+                        numberToCalculate += 2
+                    }
+                    
+                    Button(action: {
+                        numberToCalculate *= 2
+                    }, label: {
+                        Text("hello times 2")
+                    })
+                    Button("Reset") {
+                        numberToCalculate = 0
+                    }
+                }
+            }
+  
+            
         }
-        
-        
     }
 }
 

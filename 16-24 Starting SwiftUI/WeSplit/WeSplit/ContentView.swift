@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var checkAmount = 0.0
     @State private var numberOfPeople = 0
     @State private var tipPercentage = 20
+    @State private var customPercentage = 0.0
     
     @FocusState private var amountIsFocused: Bool
     
@@ -25,7 +26,7 @@ struct ContentView: View {
         
         let tipValue = checkAmount / 100 * tipSelection
         let grandTotal = checkAmount + tipValue
-        let amountPerPerson = grandTotal / peopleCount
+        var amountPerPerson = grandTotal / peopleCount
         
         return amountPerPerson
     }
@@ -37,18 +38,28 @@ struct ContentView: View {
         
         return totalCost
     }
-
+    
     var costCombined: Double {
+        
+        let customPercentage = Double(customPercentage)
         let tipSelection = Double(tipPercentage)
         let tipAdded = checkAmount / 100 * tipSelection
         let totalCost = tipAdded + checkAmount
+        
+        if customPercentage > 0 {
+            let newTipAdded = checkAmount / 100 * customPercentage
+            let newTotalCost = newTipAdded + checkAmount
+        }
+        
         
         return totalCost
     }
     
     var body: some View {
+        
         NavigationView {
             Form {
+                
                 Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
@@ -68,6 +79,8 @@ struct ContentView: View {
                         }
                     }
                     .pickerStyle(.segmented)
+                    
+                    TextField("Other amount", value: $tipPercentage, format: .percent)
                 } header: {
                     Text("Added tip")
                 }
@@ -77,13 +90,14 @@ struct ContentView: View {
                 } header: {
                     Text("Amount per person")
                 } footer: {
-                    Text("""
-                         \(costTip, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) tip
-                         \(costCombined, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) total
-                        """)
-
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(costTip, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Tip")
+                        Text("\(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Check")
+                        Text("\(costCombined, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Total")
+                    }
+                    .padding(.top, 10.0)
+                    
                 }
-                
             }
             .navigationTitle("WeSplit")
             .toolbar {
