@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     
     @State private var score = 0
-    @State private var totalTries = 3
+    @State private var totalTries = 2
     
     var body: some View {
         
@@ -29,11 +29,11 @@ struct ContentView: View {
                 
                 Text("Guess the flag").font(.largeTitle.bold()).foregroundStyle(.white)
                 
-                VStack(spacing: 15) {
+                VStack(spacing: 25) {
                     
                     VStack {
                         
-                        Text("Tap the flag of").font(.subheadline.weight(.heavy))
+                        Text("Tap the flag of").font(.title3.weight(.heavy))
                         
                         Text(countries[correctAnswer]).font(.largeTitle.weight(.semibold))
                         
@@ -49,17 +49,18 @@ struct ContentView: View {
                                 .shadow(color: .white, radius: 1)
                         }
                     }
+                    VStack(spacing: 0) {
+                        Text("Score: \(score)").font(.title3.bold()).foregroundStyle(.secondary)
+                        Text("Chances: \(totalTries + 1)").font(.title3.bold()).foregroundColor(.secondary)
+                        Text(scoreTitle).font(.title2.bold()).foregroundStyle(.secondary).padding(10)
+                    }
+                    .padding(.top, 50)
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 50)
                 .background(.thinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                
-                Spacer()
-                Spacer()
-                Text("Score: \(score)").font(.title3.bold()).foregroundStyle(.secondary)
-                Text("Chances: \(totalTries)").font(.title3.bold()).foregroundColor(.secondary)
-                Text(scoreTitle).font(.title2.bold()).foregroundStyle(.secondary).padding(10)
+
                 Spacer()
             }
             .padding(25)
@@ -81,7 +82,7 @@ struct ContentView: View {
             
         } else if totalTries < 1 {
             scoreTitle = "Too bad"
-            scoreSubtitle = "Better luck next time. Your score is \(score)"
+            scoreSubtitle = "Better luck next time. Your score was \(score)"
             resetAll()
         } else {
             totalTries -= 1
@@ -99,6 +100,7 @@ struct ContentView: View {
     func resetAll() {
         score = 0
         totalTries = 3
+        scoreTitle = "Try Again"
     }
     
     struct ContentView_Previews: PreviewProvider {
