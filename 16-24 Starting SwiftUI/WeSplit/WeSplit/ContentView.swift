@@ -104,6 +104,8 @@ struct ContentView: View {
                     Button("Done") {
                         amountIsFocused = false
                     }
+                    .foregroundColor(.primary)
+                    .buttonStyle(.bordered)
                 }
             }
         }

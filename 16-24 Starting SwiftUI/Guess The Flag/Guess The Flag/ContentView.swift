@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Guess The Flag
 //
-//  Created by Kristian Emil Hansen Svidt on 29/04/2023.
+//  Created by Svidt on 29/04/2023.
 //
 
 import SwiftUI
@@ -22,26 +22,6 @@ struct ContentView: View {
     var body: some View {
         
         ZStack {
-            
-            // // Providede by AI
-            //            RadialGradient(
-            //                            gradient: Gradient(colors: [
-            //                                Color(
-            //                                    red: 64/255,
-            //                                    green: 0/255,
-            //                                    blue: 64/255),
-            //                                Color(red: 200/255,
-            //                                      green: 0/255,
-            //                                      blue: 200/255
-            //                                     )
-            //                            ]),
-            //                            center: .center,
-            //                            startRadius: 0,
-            //                            endRadius: UIScreen.main.bounds.width
-            //                        )
-            //                        .ignoresSafeArea()
-            
-            
             LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .topTrailing, endPoint: .bottomLeading).ignoresSafeArea()
             
             VStack {
@@ -65,12 +45,10 @@ struct ContentView: View {
                         } label: {
                             Image(countries[number])
                                 .renderingMode(.original)
-                            //                            .clipShape(Capsule())
                                 .cornerRadius(20)
                                 .shadow(color: .white, radius: 1)
                         }
                     }
-                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 50)
