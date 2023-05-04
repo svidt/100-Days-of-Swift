@@ -79,19 +79,25 @@ struct ContentView: View {
                 } header: {
                     Text("Amount Per Person")
                 } footer: {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("\(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Check")
-                        Text("\(costTip, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Tip")
-                        Text("\(totalCost, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Total").bold()
+                    HStack {
+                        //                        Spacer()
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("\(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Check")
+                            Text("\(costTip, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Tip (\(tipPercentage)%)")
+                            Text("\(totalCost, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) Total").bold()
+                        }
+                        .padding(.top, 10.0)
                     }
-                    .padding(.top, 10.0)
-                    
                 }
             }
-            .onAppear {
-                
-            }
+            .padding(10)
             .navigationTitle("WeSplit")
+            .scrollContentBackground(.hidden)
+            .background(RadialGradient(gradient: Gradient(colors: [
+                Color(red: 1, green: 0.3, blue: 0.3, opacity: 0.5),
+                Color(red: 00, green: 0, blue: 0, opacity: 0.1),
+            ]), center: .bottom, startRadius: 0, endRadius: 400)
+                .edgesIgnoringSafeArea(.all))
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
