@@ -14,11 +14,12 @@ struct ContentView: View {
     @State private var userOutput = Double(0)
     @State private var userOutputMethod = String()
     
+    
     @FocusState private var isFocused: Bool
     
     let units = ["Celsius", "Fahrenheit", "Kelvin"]
     
-    func calculate() {
+    func calculate() -> Double {
         if userInputMethod == userOutputMethod {
             userOutput = userInput
         }
@@ -40,6 +41,12 @@ struct ContentView: View {
         if userInputMethod == "Kelvin" && userOutputMethod == "Fahrenheit" {
             userOutput = userInput * (9/5) - 459.67
         }
+        
+        return userOutput
+    }
+    
+    var result: Double {
+        return calculate()
     }
     
     var body: some View {
@@ -47,8 +54,8 @@ struct ContentView: View {
             VStack {
                 Form {
                     Section {
-                        TextField("Choose What Metric To Calculate", value: $userInput, format: .number)
-                            .keyboardType(.numberPad)
+                        TextField("", value: $userInput, format: .number)
+                            .keyboardType(.decimalPad)
                             .focused($isFocused)
                         Picker("Choose your metric", selection: $userInputMethod) {
                             ForEach(units, id: \.self) {
@@ -57,35 +64,36 @@ struct ContentView: View {
                         }
                         .pickerStyle(.segmented)
                     } header: {
-                        Text("Choose your input")
+                        Text("Choose your metric")
                     }
                     Section {
-                        Picker("Hello", selection: $userOutputMethod) {
+                        Picker("Conversion", selection: $userOutputMethod) {
                             ForEach(units, id: \.self) {
                                 Text($0)
                             }
                         }
                         .pickerStyle(.segmented)
                         
-                        Text(userOutput, format: .number)
+                        Text(result, format: .number)
                         
                     } header: {
-                        Text("Choose your output")
+                        Text("Result")
                     }
                 }
+                
                 .navigationTitle("Unit Conversion")
                 .scrollContentBackground(.hidden)
-                .background(Color.yellow)
+                .background(LinearGradient(gradient: Gradient(colors: [.red.opacity(0.5), .teal.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all))
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
-                        Button("Calculate") {
+                        Button("Done") {
                             calculate()
                             isFocused = false
                         }
-                        .foregroundColor(.white)
-                        .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.capsule)
+                        .foregroundColor(.primary)
+                        .buttonStyle(.bordered)
                     }
                 }
             }
