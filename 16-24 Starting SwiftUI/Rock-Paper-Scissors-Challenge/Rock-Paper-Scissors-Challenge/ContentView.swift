@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var gameChoices = ["Rock", "Paper", "Scissors"]
-    @State private var selectedMove = ""
+    @State private var selectedMove = "Rock"
     @State private var randomNumber = 0
     @State private var winOrLose: Bool = false
     @State private var pointsCollected = 0
@@ -35,14 +35,19 @@ struct ContentView: View {
         return result
     }
     
+    func randomGame() {
+        winOrLose = Bool.random()
+        randomNumber = Int.random(in: 0...2)
+    }
+    
     @State private var gameResult = "Who's gonna win?"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Player Score").font(.largeTitle)
-            Text("points \(pointsCollected)").bold()
-            
-            Spacer()
+            HStack {
+                Text("Player Score")
+                Text("\(pointsCollected)").bold()
+            }.font(.largeTitle)
             
             HStack(spacing: 10) {
                 Text("You must")
@@ -54,6 +59,7 @@ struct ContentView: View {
                 Text("Against")
                 Text(gameChoices[randomNumber]).bold()
             }
+            .padding(.top, 10)
             HStack {
                 Picker("Select your move", selection: $selectedMove) {
                     ForEach(gameChoices, id: \.self) {
@@ -61,16 +67,23 @@ struct ContentView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                Spacer()
-                
-                Button("Random") {
-                    winOrLose = Bool.random()
-                    randomNumber = Int.random(in: 0...2)
-                }
                 .buttonStyle(.borderedProminent)
                 
                 Button("Play move") {
-                    gameResult = (battle(playerMove: selectedMove, cpuMove: gameChoices[randomNumber]))
+                    if winOrLose == true && (battle(playerMove: selectedMove, cpuMove: gameChoices[randomNumber])) == "Win" {
+                        pointsCollected += 1
+                        gameResult = "You won"
+                        randomGame()
+                    } else if winOrLose == false && (battle(playerMove: selectedMove, cpuMove: gameChoices[randomNumber])) == "Defeat" {
+                        pointsCollected += 1
+                        gameResult = "You won ( by loosing )"
+                        randomGame()
+                    } else {
+                        pointsCollected -= 1
+                        gameResult = "Sorry, wrong!"
+                        randomGame()
+                        
+                    }
                 }
                 .buttonStyle(.borderedProminent)
             }
