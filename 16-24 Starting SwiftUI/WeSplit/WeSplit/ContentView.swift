@@ -57,6 +57,8 @@ struct ContentView: View {
                         }
                     }
                     .pickerStyle(.navigationLink)
+                } header: {
+                    Text("Check Amount")
                 }
                 
                 Section {
