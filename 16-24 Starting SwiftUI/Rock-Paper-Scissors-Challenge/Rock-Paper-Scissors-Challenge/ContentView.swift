@@ -16,15 +16,26 @@ struct ContentView: View {
     @State private var pointsCollected = 0
     
     
-    func battle(playerMove a: String, cpuMove b: Int) -> Int {
+    func battle(playerMove: String, cpuMove: String) -> String {
         
-        let a = 0
-        let b = 2
+        var result = ""
         
-        let result = a + b
+        if playerMove == cpuMove {
+            result = "Draw"
+        } else if playerMove == "Rock" && cpuMove == "Scissors" {
+            result = "Win"
+        } else if playerMove == "Paper" && cpuMove == "Rock" {
+            result = "Win"
+        } else if playerMove == "Scissors" && cpuMove == "Paper" {
+            result = "Win"
+        } else {
+            result = "Defeat"
+        }
         
         return result
     }
+    
+    @State private var gameResult = "Who's gonna win?"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -59,10 +70,11 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
                 
                 Button("Play move") {
-                    battle(playerMove: , cpuMove: <#T##Int#>)
+                    gameResult = (battle(playerMove: selectedMove, cpuMove: gameChoices[randomNumber]))
                 }
                 .buttonStyle(.borderedProminent)
             }
+            Text(gameResult).font(.largeTitle)
             Spacer()
         }
         .padding(25)
