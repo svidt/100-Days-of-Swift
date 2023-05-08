@@ -19,6 +19,8 @@ struct ContentView: View {
     @State private var alertMessage = ""
     @State private var showingAlert = false
     
+    @State private var combinedResult = String(calculateBedtime)
+    
     static var defaultWakeTime: Date {
         var components = DateComponents()
         components.hour = 7
@@ -32,7 +34,7 @@ struct ContentView: View {
                 
                 RadialGradient(gradient: Gradient(colors: [.blue, Color(UIColor.systemBackground)]), center: .bottom, startRadius: 0, endRadius: 500).ignoresSafeArea()
                 
-                VStack(spacing: 10) {
+                VStack {
                     
                     ZStack {
                         Image(systemName: "moon.fill").padding()
@@ -49,37 +51,62 @@ struct ContentView: View {
                             .padding()
                     }
                     
-                    Text(Date.now, format: .dateTime.day().month().year())
-                    Text("Today \(Date.now, format: .dateTime.hour().minute())")
+                    //                    Text(Date.now, format: .dateTime.day().month().year())
+                    //                    Text("Today \(Date.now, format: .dateTime.hour().minute())")
                     
-                    Spacer()
                     
-                    VStack(alignment: .center, spacing: 10) {
-                        Text("When would you like to wake up?")
+                    
+                    
+                    Form {
+                        
+                        Section {
+                            Picker("Daily coffee intake", selection: $coffeeAmount) {
+                                ForEach(1..<11) {
+                                    Text("\($0) Cups")
+                                }
+                            }
                             .font(.headline)
-                        DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
+                            //                            .buttonStyle(.bordered)
+                            //                            .tint(.yellow)
+                            .pickerStyle(.menu)
+                            //                            .labelsHidden()
+                        }
+                        Section {
+                            
+                            HStack {
+                                
+                                Text("When would you like to wake up?")
+                                    .font(.headline)
+                                Spacer()
+                                DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                                    .labelsHidden()
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text("Desired amount of sleep")
+                                    .font(.headline)
+                                Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.50)
+                            }
+                        }
+                        
+                        //                            VStack(alignment: .leading, spacing: 0) {
+                        //                                Text("Daily coffee intake")
+                        //                                    .font(.headline)
+                        //                                Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
+                        //                            }
+                        
+                        Text(combinedResult)
+                        
                     }
+                    .scrollContentBackground(.hidden)
                     
-                    Group {
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("Desired amount of sleep")
-                                .font(.headline)
-                            Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
-                        }
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("Daily coffee intake")
-                                .font(.headline)
-                            Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
-                        }
-                    }.padding(25)
                     
-                    Spacer()
+                    
                     
                     Button(action: { calculateBedtime() }) {
                         Text("Calculate")
                             .padding(20)
-                            .background(.thinMaterial)
+                            .background(.regularMaterial)
                             .foregroundColor(.primary)
                             .clipShape(Capsule())
                     }
