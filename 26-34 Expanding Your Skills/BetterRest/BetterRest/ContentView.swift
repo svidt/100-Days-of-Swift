@@ -19,7 +19,7 @@ struct ContentView: View {
     @State private var alertMessage = ""
     @State private var showingAlert = false
     
-    @State private var combinedResult = String(calculateBedtime)
+    @State private var bedTime = "zzz"
     
     static var defaultWakeTime: Date {
         var components = DateComponents()
@@ -28,34 +28,56 @@ struct ContentView: View {
         return Calendar.current.date(from: components) ?? Date.now
     }
     
+    
+    var calcBedTime: String {
+        do {
+            let config = MLModelConfiguration()
+            let model = try BetterRestCalculator(configuration: config)
+            
+            let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
+            let hour = (components.hour ?? 0) * 60 * 60
+            let minute = (components.minute ?? 0) * 60
+            
+            let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
+            
+            let sleepTime = wakeUp - prediction.actualSleep
+            return sleepTime.formatted(date: .omitted, time: .shortened)
+            
+        } catch {
+            bedTime = "Error"
+        }
+        
+        return bedTime
+        
+    }
+    
+    
     var body: some View {
+        
         NavigationView {
             ZStack {
                 
-                RadialGradient(gradient: Gradient(colors: [.blue, Color(UIColor.systemBackground)]), center: .bottom, startRadius: 0, endRadius: 500).ignoresSafeArea()
+                RadialGradient(gradient: Gradient(colors: [.secondary, Color(UIColor.systemBackground)]), center: .bottom, startRadius: 0, endRadius: 500).ignoresSafeArea()
                 
                 VStack {
-                    
                     ZStack {
                         Image(systemName: "moon.fill").padding()
                             .imageScale(.large)
-                            .font(.title)
-                            .foregroundColor(.yellow)
+                            .font(.largeTitle)
+                            .foregroundColor(.primary)
                             .blur(radius: 10)
                             .padding()
                         Image(systemName: "moon.fill").padding()
                             .imageScale(.large)
-                            .font(.title)
-                            .foregroundColor(.yellow)
+                            .font(.largeTitle)
+                            .foregroundColor(.secondary)
                             .blur(radius: 0)
                             .padding()
                     }
+                    .padding()
                     
-                    //                    Text(Date.now, format: .dateTime.day().month().year())
-                    //                    Text("Today \(Date.now, format: .dateTime.hour().minute())")
-                    
-                    
-                    
+//                    Text(Date.now, format: .dateTime.day().month().year())
+//                    Text(Date.now, format: .dateTime.hour().minute())
                     
                     Form {
                         
@@ -66,10 +88,9 @@ struct ContentView: View {
                                 }
                             }
                             .font(.headline)
-                            //                            .buttonStyle(.bordered)
-                            //                            .tint(.yellow)
+                            .buttonStyle(.bordered)
+                            .tint(.white)
                             .pickerStyle(.menu)
-                            //                            .labelsHidden()
                         }
                         Section {
                             
@@ -94,27 +115,32 @@ struct ContentView: View {
                         //                                    .font(.headline)
                         //                                Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
                         //                            }
-                        
-                        Text(combinedResult)
-                        
+                        Section {
+                            HStack {
+                                Text("Your ideal bedtime is").font(.headline)
+                                Spacer()
+                                Text(calcBedTime).font(.title)
+                            }
+                        }.listRowBackground(Color.clear)
                     }
                     .scrollContentBackground(.hidden)
                     
+
+
                     
                     
-                    
-                    Button(action: { calculateBedtime() }) {
-                        Text("Calculate")
-                            .padding(20)
-                            .background(.regularMaterial)
-                            .foregroundColor(.primary)
-                            .clipShape(Capsule())
-                    }
-                    .alert(alertTitle, isPresented: $showingAlert) {
-                        Button("OK") { }
-                    } message: {
-                        Text(alertMessage)
-                    }
+                    //                    Button(action: { calculateBedtime() }) {
+                    //                        Text("Calculate")
+                    //                            .padding(20)
+                    //                            .background(.regularMaterial)
+                    //                            .foregroundColor(.primary)
+                    //                            .clipShape(Capsule())
+                    //                    }
+                    //                    .alert(alertTitle, isPresented: $showingAlert) {
+                    //                        Button("OK") { }
+                    //                    } message: {
+                    //                        Text(alertMessage)
+                    //                    }
                     
                 }
                 .navigationTitle("BetterRest")
@@ -123,28 +149,28 @@ struct ContentView: View {
         .preferredColorScheme(.dark)
     }
     
-    func calculateBedtime() {
-        do {
-            let config = MLModelConfiguration()
-            let model = try BetterRestCalculator(configuration: config)
-            
-            let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
-            let hour = (components.hour ?? 0) * 60 * 60
-            let minute = (components.minute ?? 0) * 60
-            
-            let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
-            
-            let sleepTime = wakeUp - prediction.actualSleep
-            alertTitle = "Your ideal bedtime is..."
-            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
-            
-        } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
-        }
-        
-        showingAlert = true
-    }
+    //    func calculateBedtime() {
+    //        do {
+    //            let config = MLModelConfiguration()
+    //            let model = try BetterRestCalculator(configuration: config)
+    //
+    //            let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
+    //            let hour = (components.hour ?? 0) * 60 * 60
+    //            let minute = (components.minute ?? 0) * 60
+    //
+    //            let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
+    //
+    //            let sleepTime = wakeUp - prediction.actualSleep
+    //            alertTitle = "Your ideal bedtime is..."
+    //            bedTime = sleepTime.formatted(date: .omitted, time: .shortened)
+    //
+    //        } catch {
+    //            alertTitle = "Error"
+    //            alertMessage = "Sorry, there was a problem calculating your bedtime."
+    //        }
+    //
+    //        showingAlert = true
+    //    }
     
 }
 
