@@ -2,7 +2,7 @@
 //  WordScrambleApp.swift
 //  WordScramble
 //
-//  Created by Kristian Emil Hansen Svidt on 10/05/2023.
+//  Created by Svidt on 10/05/2023.
 //
 
 import SwiftUI
