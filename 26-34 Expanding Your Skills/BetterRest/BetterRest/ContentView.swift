@@ -21,6 +21,11 @@ struct ContentView: View {
     
     @State private var bedTime = "zzz"
     
+    // Animations
+    @State private var isOn = true
+    @State private var transparency: Double = 0.0
+    
+    
     static var defaultWakeTime: Date {
         var components = DateComponents()
         components.hour = 7
@@ -59,22 +64,52 @@ struct ContentView: View {
                 
                 RadialGradient(gradient: Gradient(colors: [.secondary, Color(UIColor.systemBackground)]), center: .bottom, startRadius: 0, endRadius: 500).ignoresSafeArea()
                 
+                
                 VStack {
-                    ZStack {
-                        Image(systemName: "moon.fill").padding()
-                            .imageScale(.large)
-                            .font(.largeTitle)
-                            .foregroundColor(.primary)
-                            .blur(radius: 10)
-                            .padding()
-                        Image(systemName: "moon.fill").padding()
-                            .imageScale(.large)
-                            .font(.largeTitle)
-                            .foregroundColor(.secondary)
-                            .blur(radius: 0)
-                            .padding()
-                    }
-                    .padding()
+                    
+                    Button {
+                        isOn.toggle()
+                        transparency = 0.6
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                transparency = 0.0
+                            }
+                        }
+                    } label: {
+                        ZStack {
+                            Image(systemName: "moon.fill")
+                                .imageScale(.large)
+                                .font(.largeTitle)
+                                .scaleEffect(isOn ? 1 : 0)
+                                .opacity(isOn ? 1 : 0)
+                                .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: isOn)
+                                .foregroundColor(.primary)
+                                .blur(radius: 10)
+                            Image(systemName: "moon.fill")
+                                .imageScale(.large)
+                                .font(.largeTitle)
+                                .scaleEffect(isOn ? 1 : 0)
+                                .opacity(isOn ? 1 : 0)
+                                .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: isOn)
+                                .foregroundColor(.primary)
+                            
+                            Image(systemName: "cup.and.saucer.fill")
+                                .imageScale(.large)
+                                .font(.largeTitle)
+                                .scaleEffect(isOn ? 0 : 1)
+                                .opacity(isOn ? 0 : 1)
+                                .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: isOn)
+                                .foregroundColor(.primary)
+                                .blur(radius: 10)
+                            Image(systemName: "cup.and.saucer.fill")
+                                .imageScale(.large)
+                                .font(.largeTitle)
+                                .scaleEffect(isOn ? 0 : 1)
+                                .opacity(isOn ? 0 : 1)
+                                .animation(.interpolatingSpring(stiffness: 170, damping: 15), value: isOn)
+                                .foregroundColor(.primary)
+                        }
+                    }.padding(50)
                     
 //                    Text(Date.now, format: .dateTime.day().month().year())
 //                    Text(Date.now, format: .dateTime.hour().minute())
@@ -91,7 +126,15 @@ struct ContentView: View {
                             .buttonStyle(.bordered)
                             .tint(.white)
                             .pickerStyle(.menu)
+                            
                         }
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Daily coffee intake")
+                                .font(.headline)
+                            Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
+                        }
+                        
                         Section {
                             
                             HStack {
@@ -110,11 +153,6 @@ struct ContentView: View {
                             }
                         }
                         
-                        //                            VStack(alignment: .leading, spacing: 0) {
-                        //                                Text("Daily coffee intake")
-                        //                                    .font(.headline)
-                        //                                Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
-                        //                            }
                         Section {
                             HStack {
                                 Text("Your ideal bedtime is").font(.headline)
@@ -179,3 +217,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+// MARK: - Animations
