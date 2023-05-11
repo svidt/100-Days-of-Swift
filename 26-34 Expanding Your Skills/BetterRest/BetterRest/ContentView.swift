@@ -217,6 +217,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-// MARK: - Animations

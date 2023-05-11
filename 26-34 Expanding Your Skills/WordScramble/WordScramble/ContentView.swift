@@ -30,11 +30,16 @@ struct ContentView: View {
                     HStack {
                         Text("Points").bold()
                         Spacer()
-                        Image(systemName: "\(totalPoints).circle")
+                        if totalPoints >= 10 {
+                            Text("\(totalPoints)")
+                            Image(systemName: "star")
+                        } else {
+                            Image(systemName: "\(totalPoints).circle")
+                        }
                     }
                     .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                 }
-                //                .padding()
                 
                 Section {
                     ForEach(usedWords, id: \.self) { word in
@@ -60,9 +65,15 @@ struct ContentView: View {
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         
+        if answer.count == 0 {
+            wordError(title: "Empty", message: "Oh on, try again")
+            return
+        }
+        
         guard answer.count > 2 else {
             wordError(title: "Word too short", message: "You need to make at least a 3 letter word")
-            return }
+            return
+        }
         
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original")
@@ -81,11 +92,6 @@ struct ContentView: View {
         
         guard isSameWord(word: answer) else {
             wordError(title: "Word is the same", message: "You need to make a new word")
-            return
-        }
-        
-        guard checkScore(score: totalPoints) else {
-            wordError(title: "You won", message: "Great job reacing \(totalPoints) points!")
             return
         }
         
@@ -152,12 +158,10 @@ struct ContentView: View {
     }
     
     func checkScore(score: Int) -> Bool {
-        let tempScore = totalPoints
-        
-        if tempScore > 5 {
-            return true
+        if score > 5 {
+            wordError(title: "You won", message: "Great job reacing \(totalPoints) points!")
         }
-        return false
+        return true
     }
     
 }
