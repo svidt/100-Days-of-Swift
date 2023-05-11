@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var rootWord = ""
     @State private var newWord = ""
     
+    @State private var totalPoints = 0
+    
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
@@ -25,13 +27,21 @@ struct ContentView: View {
                 Section {
                     TextField("Enter your word", text: $newWord)
                         .autocapitalization(.none)
+                    HStack {
+                        Text("Points").bold()
+                        Spacer()
+                        Image(systemName: "\(totalPoints).circle")
+                    }
+                    .listRowBackground(Color.clear)
                 }
-
+                //                .padding()
+                
                 Section {
                     ForEach(usedWords, id: \.self) { word in
                         HStack {
-                            Image(systemName: "\(word.count).circle.fill")
                             Text(word)
+                            Spacer()
+                            Image(systemName: "\(word.count).circle")
                         }
                     }
                 }
@@ -49,7 +59,10 @@ struct ContentView: View {
     
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-        guard answer.count > 0 else { return }
+        
+        guard answer.count > 2 else {
+            wordError(title: "Word too short", message: "You need to make at least a 3 letter word")
+            return }
         
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original")
@@ -65,6 +78,18 @@ struct ContentView: View {
             wordError(title: "Word not recognized", message: "You can't make up words as you go")
             return
         }
+        
+        guard isSameWord(word: answer) else {
+            wordError(title: "Word is the same", message: "You need to make a new word")
+            return
+        }
+        
+        guard checkScore(score: totalPoints) else {
+            wordError(title: "You won", message: "Great job reacing \(totalPoints) points!")
+            return
+        }
+        
+        totalPoints += answer.count
         
         withAnimation {
             usedWords.insert(answer, at: 0)
@@ -116,6 +141,25 @@ struct ContentView: View {
         errorMessage = message
         showingError = true
     }
+    
+    func isSameWord(word: String) -> Bool {
+        let tempWord = rootWord
+        
+        if tempWord == word {
+            return false
+        }
+        return true
+    }
+    
+    func checkScore(score: Int) -> Bool {
+        let tempScore = totalPoints
+        
+        if tempScore > 5 {
+            return true
+        }
+        return false
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
