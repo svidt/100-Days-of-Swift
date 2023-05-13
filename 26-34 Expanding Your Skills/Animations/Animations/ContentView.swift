@@ -12,8 +12,42 @@ struct ContentView: View {
     @State private var animationAmount = 1.0
     @State private var animationPulse = 1.0
     
+    @State private var animationShape = 1.0
+    @State private var animationRotate = 1.0
+    
     var body: some View {
         VStack {
+
+            Button("Rotate") {
+                withAnimation(.easeOut(duration: 1)) {
+                    animationRotate += 360
+                    
+                }
+            }
+            .padding(25)
+            .background(.yellow)
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .rotation3DEffect(.degrees(animationRotate), axis: (x: 1, y: 1, z: 1))
+            .padding(50)
+            
+            Button("Pulse") {
+//                animationShape += 1
+            }
+            .padding(25)
+            .background(.red)
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .overlay(
+                Circle()
+                    .stroke(.red)
+                    .scaleEffect(animationShape)
+                    .opacity(2 - animationShape))
+            .animation(
+                .easeInOut(duration: 1)
+                .delay(1)
+                .repeatForever(autoreverses: false), value: animationShape
+            )
             
             Spacer()
             
@@ -54,7 +88,7 @@ struct ContentView: View {
             Stepper("Scale amount", value: $animationAmount.animation(), in: 1...10, step: 0.1)
         }
         .onAppear {
-            animationPulse = 2
+            animationShape = 2.0
         }
     }
 }
