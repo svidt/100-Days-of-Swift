@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var isFlipped = false
     @State private var animationAmount = 1.0
+    @State private var animationNumber = [0, 0, 0]
     
     @State private var showingScore: Bool = false
     @State private var scoreTitle: String = "Have a guess"
@@ -41,18 +41,19 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    VStack(spacing: 20) {
+                    VStack(spacing: 30) {
                         
                         ForEach(0..<3) { number in
                             Button {
                                 flagTapped(number)
                             } label: {
-                                ZStack {
-                                    Image(systemName: "globe")
-                                    Image(countries[number])
-                                }
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                Image(countries[number])
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    .rotation3DEffect(.degrees(Double(animationNumber[number])), axis: (x: 0, y: 1, z: 0))
+                                    .animation(.easeInOut(duration: 1), value: animationNumber[number])
                             }
+                            .shadow(radius: 20)
+                            
                         }
                     }
                     
@@ -74,7 +75,6 @@ struct ContentView: View {
                 }
                 .padding(50)
             }
-//            .navigationTitle("Guess the flag")
             .alert(scoreTitle, isPresented: $showingScore) {
                 Button("Continue", action: askQuestion)
             } message: {
@@ -84,10 +84,21 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int) {
+        
         if number == correctAnswer {
             score += 1
             scoreTitle = "Correct"
             scoreSubtitle = "Your score is \(score)"
+            if number == 0 {
+                animationNumber[number] += 360
+                print(animationNumber[number])
+            } else if number == 1 {
+                animationNumber[number] += 360
+                print(animationNumber[number])
+            } else if number == 2 {
+                animationNumber[number] += 360
+                print(animationNumber[number])
+            }
             
         } else if totalTries < 1 {
             scoreTitle = "Too bad"
@@ -109,6 +120,7 @@ struct ContentView: View {
     func resetAll() {
         score = 0
         totalTries = 2
+        animationNumber = [0, 0, 0]
     }
 }
 
