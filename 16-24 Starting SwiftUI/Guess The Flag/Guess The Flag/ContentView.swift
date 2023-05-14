@@ -7,30 +7,10 @@
 
 import SwiftUI
 
-struct Watermark: ViewModifier {
-    var text: String
-    
-    func body(content: Content) -> some View {
-        ZStack(alignment: .bottomTrailing) {
-            content
-            Text(text)
-                .font(.caption)
-                .foregroundColor(.white)
-                .padding(5)
-                .background(Color.black)
-                .clipShape(Capsule())
-        }
-    }
-}
-
-extension View {
-    func watermarked(with text: String) -> some View {
-        self.modifier(Watermark(text: text))
-    }
-}
-
-
 struct ContentView: View {
+    
+    @State private var isFlipped = false
+    @State private var animationAmount = 1.0
     
     @State private var showingScore: Bool = false
     @State private var scoreTitle: String = "Have a guess"
@@ -42,76 +22,65 @@ struct ContentView: View {
     @State private var score = 0
     @State private var totalTries = 2
     
-    @State private var helpAdded: Bool = false
-    
     var body: some View {
-        
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .topTrailing, endPoint: .bottomLeading).ignoresSafeArea()
+        NavigationView {
             
-            VStack {
-                Spacer()
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [.blue, .clear]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
                 
-                Text("Guess the flag").font(.largeTitle.bold()).foregroundStyle(.white)
-                
-                VStack(spacing: 15) {
+                VStack {
                     
                     VStack {
                         
-                        Text("Tap the flag of").font(.subheadline.weight(.heavy))
+                        Text("Tap the flag of").font(.title)
+                        Text(countries[correctAnswer]).font(.largeTitle).bold()
                         
-                        Text(countries[correctAnswer]).font(.largeTitle.weight(.semibold))
-                        
-                    }.foregroundStyle(.white)
+                    }
+                    .foregroundStyle(.white)
                     
-                    ForEach(0..<3) { number in
-                        Button {
-                            flagTapped(number)
-                        } label: {
-                            if helpAdded {
-                                Image(countries[number])
-                                    .renderingMode(.original)
-                                    .cornerRadius(20)
-                                    .shadow(color: .white, radius: 1)
-                                    .watermarked(with: countries[number])
-                            } else {
-                                Image(countries[number])
-                                    .renderingMode(.original)
-                                    .cornerRadius(20)
-                                    .shadow(color: .white, radius: 1)
+                    Spacer()
+                    
+                    VStack(spacing: 20) {
+                        
+                        ForEach(0..<3) { number in
+                            Button {
+                                flagTapped(number)
+                            } label: {
+                                ZStack {
+                                    Image(systemName: "globe")
+                                    Image(countries[number])
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
                             }
-                            
                         }
                     }
+                    
+                    Spacer()
+                    
+                    ZStack {
+                        Rectangle()
+                            .fill(.thinMaterial)
+                            .frame(width: 200, height: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                        VStack(alignment: .leading) {
+                            Text("Score: \(score)").bold()
+                            Text("Chances: \(totalTries + 1)").bold()
+                        }
+                    }
+                    
+                    Spacer()
+                    
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 50)
-                .background(.thinMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                
-                Spacer()
-                Spacer()
-                Text("Score: \(score)").font(.title3.bold()).foregroundStyle(.black)
-                Text("Chances: \(totalTries + 1)").font(.title3.bold()).foregroundColor(.black)
-//                Text(scoreTitle).font(.title2.bold()).foregroundStyle(.secondary).padding(10)
-//                Spacer()
-                Spacer()
-                
-                Button(action: {
-                    helpAdded.toggle()
-                }) {
-                    Image(systemName: "questionmark.circle").foregroundColor(.blue)
-                }
-
+                .padding(50)
             }
-            .padding(25)
+//            .navigationTitle("Guess the flag")
+            .alert(scoreTitle, isPresented: $showingScore) {
+                Button("Continue", action: askQuestion)
+            } message: {
+                Text(scoreSubtitle)
+            }
         }
-        .alert(scoreTitle, isPresented: $showingScore) {
-            Button("Continue", action: askQuestion)
-        } message: {
-            Text(scoreSubtitle)
-        }
-        
     }
     
     func flagTapped(_ number: Int) {
@@ -122,7 +91,7 @@ struct ContentView: View {
             
         } else if totalTries < 1 {
             scoreTitle = "Too bad"
-            scoreSubtitle = "Better luck next time. Your score was \(score)"
+            scoreSubtitle = "Your final score was \(score)"
             resetAll()
         } else {
             totalTries -= 1

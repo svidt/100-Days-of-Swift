@@ -15,12 +15,15 @@ struct ContentView: View {
     @State private var animationShape = 1.0
     @State private var animationRotate = 1.0
     
+    @State private var enabled = false
+    
     var body: some View {
         VStack {
 
             Button("Rotate") {
                 withAnimation(.easeOut(duration: 1)) {
-                    animationRotate += 360
+                    animationRotate += 360*3
+                    enabled.toggle()
                     
                 }
             }
@@ -29,7 +32,8 @@ struct ContentView: View {
             .foregroundColor(.white)
             .clipShape(Circle())
             .rotation3DEffect(.degrees(animationRotate), axis: (x: 1, y: 1, z: 1))
-            .padding(50)
+            .padding(enabled ? 100 : 0)
+            .animation(.interpolatingSpring(stiffness: 100, damping: 10), value: enabled)
             
             Button("Pulse") {
 //                animationShape += 1
