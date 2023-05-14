@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     
     @State private var score = 0
-    @State private var totalTries = 2
+    @State private var chances = 2
     
     var body: some View {
         NavigationView {
@@ -48,13 +48,14 @@ struct ContentView: View {
                                 flagTapped(number)
                             } label: {
                                 Image(countries[number])
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    .rotation3DEffect(.degrees(Double(animationNumber[number])), axis: (x: 0, y: 1, z: 0))
-                                    .animation(.easeInOut(duration: 1), value: animationNumber[number])
                             }
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .rotation3DEffect(.degrees(Double(animationNumber[number])), axis: (x: 0, y: 1, z: 0))
+                            .animation(.easeInOut(duration: 1), value: animationNumber[number])
                             .shadow(radius: 20)
                             
                         }
+                        .animation(.easeInOut, value: countries)
                     }
                     
                     Spacer()
@@ -66,7 +67,7 @@ struct ContentView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                         VStack(alignment: .leading) {
                             Text("Score: \(score)").bold()
-                            Text("Chances: \(totalTries + 1)").bold()
+                            Text("Chances: \(chances + 1)").bold()
                         }
                     }
                     
@@ -100,12 +101,12 @@ struct ContentView: View {
                 print(animationNumber[number])
             }
             
-        } else if totalTries < 1 {
+        } else if chances < 1 {
             scoreTitle = "Too bad"
             scoreSubtitle = "Your final score was \(score)"
             resetAll()
         } else {
-            totalTries -= 1
+            chances -= 1
             scoreTitle = "Wrong"
             scoreSubtitle = "The correct answer was \(countries[correctAnswer])"
         }
@@ -119,7 +120,7 @@ struct ContentView: View {
     
     func resetAll() {
         score = 0
-        totalTries = 2
+        chances = 2
         animationNumber = [0, 0, 0]
     }
 }
