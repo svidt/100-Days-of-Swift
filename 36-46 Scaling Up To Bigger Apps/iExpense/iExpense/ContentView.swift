@@ -39,6 +39,8 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingAddExpense) {
                 AddView(expenses: expenses)
+                    .presentationDetents(.medium, .large)
+                    .presentationDragIndicator(.visible)
             }
         }
     }
