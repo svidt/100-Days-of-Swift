@@ -15,33 +15,57 @@ struct AddView: View {
     @State private var name = ""
     @State private var type = "Personal"
     @State private var amount  = 0.0
+    @State private var date = ""
+    
+    @State private var buttonStateDisabled = true
+    
+    let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            return formatter
+        }()
     
     let types = ["Business", "Personal"]
+    
+    var formattedCurrentDate: String {
+        let currentDate = Date()
+        return dateFormatter.string(from: currentDate)
+    }
     
     var body: some View {
         NavigationView {
             Form {
-                TextField("Name", text: $name)
-                
-                Picker("Type", selection: $type) {
-                    ForEach(types, id: \.self) {
-                        Text($0)
+                Section {
+                    
+                    TextField("Name", text: $name)
+                    
+                    Picker("Type", selection: $type) {
+                        ForEach(types, id: \.self) {
+                            Text($0)
+                        }
                     }
+                    
+                    TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .keyboardType(.decimalPad)
+                } footer: {
+                    HStack {
+                        Spacer()
+                        Text(formattedCurrentDate)
+                    }
+                    
                 }
-                
-                TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                    .keyboardType(.decimalPad)
-                
                 
             }
             .navigationTitle("Add new expense")
             .toolbar {
                 Button("Save") {
-                    let item = ExpenseItem(name: name, type: type, amount: amount)
+                    let item = ExpenseItem(name: name, type: type, amount: amount, date: date )
                     expenses.items.append(item)
                     dismiss()
                 }
+                .disabled(name == "" ? buttonStateDisabled == true : buttonStateDisabled == false)
             }
+            
         }
     }
 }
