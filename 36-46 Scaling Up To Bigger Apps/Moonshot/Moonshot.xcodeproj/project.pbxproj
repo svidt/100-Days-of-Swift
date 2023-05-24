@@ -17,6 +17,7 @@
 		688596042A1B7499002711BB /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688596032A1B7499002711BB /* Bundle-Decodable.swift */; };
 		688596062A1B76C9002711BB /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688596052A1B76C9002711BB /* Mission.swift */; };
 		688596082A1B8355002711BB /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688596072A1B8355002711BB /* Color-Theme.swift */; };
+		688596122A1D18E1002711BB /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688596112A1D18E1002711BB /* MissionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		688596032A1B7499002711BB /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		688596052A1B76C9002711BB /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		688596072A1B8355002711BB /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
+		688596112A1D18E1002711BB /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				688595EF2A1A4363002711BB /* MoonshotApp.swift */,
 				688595F12A1A4363002711BB /* ContentView.swift */,
+				688596112A1D18E1002711BB /* MissionView.swift */,
 				688596072A1B8355002711BB /* Color-Theme.swift */,
 				688596012A1B7444002711BB /* Astronaut.swift */,
 				688596052A1B76C9002711BB /* Mission.swift */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688596122A1D18E1002711BB /* MissionView.swift in Sources */,
 				688596022A1B7444002711BB /* Astronaut.swift in Sources */,
 				688596082A1B8355002711BB /* Color-Theme.swift in Sources */,
 				688595F22A1A4363002711BB /* ContentView.swift in Sources */,
