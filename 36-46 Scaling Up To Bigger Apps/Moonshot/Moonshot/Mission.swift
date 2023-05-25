@@ -2,7 +2,7 @@
 //  Mission.swift
 //  Moonshot
 //
-//  Created by Kristian Emil Hansen Svidt on 22/05/2023.
+//  Created by Svidt on 22/05/2023.
 //
 
 import Foundation
