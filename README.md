@@ -22,9 +22,9 @@ A repository for my personal journey through Paul Hudson's 100 Days of Swift®
 
 **Day 16 - 24**  
 - Starting iOS  
-  - Project 1  
-  - Project 2  
-  - Project 3  
+  - [Guess The Flag](https://github.com/svidt/100-Days-of-Swift/tree/main/16-24%20Starting%20SwiftUI/Guess%20The%20Flag) 
+  - [Rock, Paper, Scissors](https://github.com/svidt/100-Days-of-Swift/tree/main/16-24%20Starting%20SwiftUI/Rock-Paper-Scissors-Challenge)  
+  - [WeSplit](https://github.com/svidt/100-Days-of-Swift/tree/main/16-24%20Starting%20SwiftUI/WeSplit)  
   
 **Day 25**  
 - Consolidation II
