@@ -45,7 +45,7 @@ struct AstronautScrollView: View {
                     }
                 }
             }
-        }        
+        }
     }
 }
 
