@@ -3,7 +3,7 @@
 A repository for my personal journey through Paul Hudson's 100 Days of Swift®  
 
 **Day 1 - 12**  
-- [Introduction To Swift](/1-12%20Introduction%20to%20Swift/)  
+- [**Introduction To Swift**](/1-12%20Introduction%20to%20Swift/)  
   - [1.0 First Steps In Swift](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/1.0%20First%20Steps%20In%20Swift)  
   - [2.0 Complex Data Types](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/2.0%20Complex%20Data%20Types)  
   - [3.0 Operators and Conditions](https://github.com/svidt/100-Days-of-Swift/tree/main/1-12%20Introduction%20to%20Swift/3.0%20Operators%20and%20Conditions)  
@@ -21,7 +21,7 @@ A repository for my personal journey through Paul Hudson's 100 Days of Swift®
 - Consolidation I
 
 **Day 16 - 24**  
-- Starting iOS  
+- [**Starting iOS**](https://github.com/svidt/100-Days-of-Swift/tree/main/16-24%20Starting%20SwiftUI)  
   - [Guess The Flag](https://github.com/svidt/100-Days-of-Swift/tree/main/16-24%20Starting%20SwiftUI/Guess%20The%20Flag) 
   - [Rock, Paper, Scissors](https://github.com/svidt/100-Days-of-Swift/tree/main/16-24%20Starting%20SwiftUI/Rock-Paper-Scissors-Challenge)  
   - [WeSplit](https://github.com/svidt/100-Days-of-Swift/tree/main/16-24%20Starting%20SwiftUI/WeSplit)  
@@ -30,7 +30,12 @@ A repository for my personal journey through Paul Hudson's 100 Days of Swift®
 - Consolidation II
 
 **Day 26 - 34**  
-- Expanding Your Skills
+- [**Expanding Your Skills**](https://github.com/svidt/100-Days-of-Swift/tree/main/26-34%20Expanding%20Your%20Skills)
+  - [BetterRest](https://github.com/svidt/100-Days-of-Swift/tree/main/26-34%20Expanding%20Your%20Skills/BetterRest)
+  - [WordScramble](https://github.com/svidt/100-Days-of-Swift/tree/main/26-34%20Expanding%20Your%20Skills/WordScramble)
+  - [Animations](https://github.com/svidt/100-Days-of-Swift/tree/main/26-34%20Expanding%20Your%20Skills/Animations)
+  - [AnimationMore](https://github.com/svidt/100-Days-of-Swift/tree/main/26-34%20Expanding%20Your%20Skills/AnimationMore)
+  - [Rock, Paper, Scissors pt. 2](https://github.com/svidt/100-Days-of-Swift/tree/main/26-34%20Expanding%20Your%20Skills/Rock-Paper-Scissors-Challenge)
 
 **Day 35**  
 - Consolidation III  
