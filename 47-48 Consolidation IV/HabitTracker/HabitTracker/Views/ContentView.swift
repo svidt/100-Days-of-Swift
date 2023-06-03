@@ -8,11 +8,11 @@
 
 // MARK: Description
 /*
-Build a habit-tracking app.
+ Build a habit-tracking app.
  
  Functionality:
  - Add activity
-    - With a title and a description
+ - With a title and a description
  - Tapping into the activity to read description
  - Button to increment how many times activity has been completed.
  
@@ -34,30 +34,58 @@ struct ContentView: View {
                 VStack {
                     List {
                         ForEach(activity.instance) { act in
-                            NavigationLink(act.name) {
-                                ActivityView()
-                                
+                            
+                            NavigationLink {
+                                ActivityView(item: Activity(name: act.name, category: act.category, description: act.description))
+                            
+                            } label: {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(act.name)
+                                            .font(.headline)
+                                        Text(act.category)
+                                            .font(.subheadline)
+                                        
+                                    }
+                                }
                             }
                         }
+                        .onDelete(perform: removeActivity)
+                        
                     }
-                    Button("Add one") {
+                    
+                }
+                .navigationTitle("Activity List")
+                .toolbar {
+                    EditButton()
+                }
+                
+                VStack {
+                    Spacer()
+                    
+                    Button {
                         showingAddActivity = true
+                    } label: {
+                        Image(systemName: "plus")
                     }
-                    .frame(width: 100, height: 100)
+                    .frame(width: 75, height: 75)
                     .background(.green)
                     .clipShape(Circle())
                     .foregroundColor(.white)
-                    .bold()
+                    .imageScale(.large).bold()
                     .sheet(isPresented: $showingAddActivity) {
-                        AddActivity(activities: ActivityCollection())
+                        AddActivity(activities: activity)
                             .presentationDragIndicator(.visible)
                     }
                 }
-                .navigationTitle("Activity List")
+                
                 
             }
-
         }
+    }
+    
+    func removeActivity(at offsets: IndexSet) {
+        activity.instance.remove(atOffsets: offsets)
     }
 }
 

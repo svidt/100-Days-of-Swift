@@ -2,7 +2,7 @@
 //  AddActivity.swift
 //  HabitTracker
 //
-//  Created by Kristian Emil Hansen Svidt on 03/06/2023.
+//  Created by Svidt on 03/06/2023.
 //
 
 import SwiftUI

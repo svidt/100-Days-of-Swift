@@ -2,17 +2,26 @@
 //  ActivityCollection.swift
 //  HabitTracker
 //
-//  Created by Kristian Emil Hansen Svidt on 03/06/2023.
+//  Created by Svidt on 03/06/2023.
 //
 
 import Foundation
 
 class ActivityCollection: ObservableObject {
-    @Published var instance = [Activity]()
+    @Published var instance = [Activity]() {
+        didSet {
+            if let encoded = try? JSONEncoder().encode(instance) {
+                UserDefaults.standard.set(encoded, forKey: "Items")
+            }
+        }
+    }
     
-    
-//    init() {
-//        var newInstance = Activity(name: "Emil", category: "Sports", description: "Mixed Martial Arts")
-//    }
-    
+    init() {
+        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
+            if let decodedItems = try? JSONDecoder().decode([Activity].self, from: savedItems) {
+                instance = decodedItems
+                return
+            }
+        }
+    }
 }
