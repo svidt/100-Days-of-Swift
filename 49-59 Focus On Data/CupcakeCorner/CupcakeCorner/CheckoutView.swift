@@ -13,6 +13,9 @@ struct CheckoutView: View {
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
     
+    @State private var networkMessage = ""
+    @State private var showingNetworkStatus = false
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -43,6 +46,11 @@ struct CheckoutView: View {
         } message: {
             Text(confirmationMessage)
         }
+        .alert("Information", isPresented: $showingNetworkStatus) {
+            Button("OK") { }
+        } message: {
+            Text(networkMessage)
+        }
     }
     
     func placeOrder() async {
@@ -64,6 +72,8 @@ struct CheckoutView: View {
             showingConfirmation = true
             
         } catch {
+            networkMessage = "Something went wrong. Check your internet connection."
+            showingNetworkStatus = true
             print("Checkout failed.")
         }
     }

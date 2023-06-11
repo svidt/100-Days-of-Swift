@@ -39,7 +39,7 @@ class Order: ObservableObject, Codable {
         let trimmedCity = city.trimmingCharacters(in: .whitespaces)
         let trimmedZip = zip.trimmingCharacters(in: .whitespaces)
         
-        if name.isEmpty || trimmedStreetAddress.isEmpty || city.isEmpty || zip.isEmpty{
+        if trimmedName.isEmpty || trimmedStreetAddress.isEmpty || trimmedCity.isEmpty || trimmedZip.isEmpty{
             return false
         }
         
