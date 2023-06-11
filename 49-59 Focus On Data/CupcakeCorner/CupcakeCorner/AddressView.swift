@@ -2,7 +2,7 @@
 //  AddressView.swift
 //  CupcakeCorner
 //
-//  Created by Kristian Emil Hansen Svidt on 08/06/2023.
+//  Created by Svidt on 08/06/2023.
 //
 
 import SwiftUI
