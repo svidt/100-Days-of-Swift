@@ -2,7 +2,7 @@
 //  RatingView.swift
 //  Bookworm
 //
-//  Created by Kristian Emil Hansen Svidt on 14/06/2023.
+//  Created by Svidt on 14/06/2023.
 //
 
 import SwiftUI

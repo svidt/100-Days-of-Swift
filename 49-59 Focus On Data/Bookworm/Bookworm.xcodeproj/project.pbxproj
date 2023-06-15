@@ -15,6 +15,7 @@
 		682A94792A37C4470058006F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A94782A37C4470058006F /* DataController.swift */; };
 		68D495402A3A4828003F2454 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4953F2A3A4828003F2454 /* AddBookView.swift */; };
 		68D495422A3A50CF003F2454 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D495412A3A50CF003F2454 /* RatingView.swift */; };
+		68D495442A3A56BB003F2454 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D495432A3A56BB003F2454 /* EmojiRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		682A94782A37C4470058006F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		68D4953F2A3A4828003F2454 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		68D495412A3A50CF003F2454 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		68D495432A3A56BB003F2454 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				680F74452A37B7EE0019AA76 /* BookwormApp.swift */,
 				680F74472A37B7EE0019AA76 /* ContentView.swift */,
+				68D495432A3A56BB003F2454 /* EmojiRatingView.swift */,
 				682A94752A37C3E80058006F /* Bookworm.xcdatamodeld */,
 				68D4953F2A3A4828003F2454 /* AddBookView.swift */,
 				68D495412A3A50CF003F2454 /* RatingView.swift */,
@@ -151,6 +154,7 @@
 			files = (
 				680F74482A37B7EE0019AA76 /* ContentView.swift in Sources */,
 				682A94792A37C4470058006F /* DataController.swift in Sources */,
+				68D495442A3A56BB003F2454 /* EmojiRatingView.swift in Sources */,
 				682A94772A37C3E80058006F /* Bookworm.xcdatamodeld in Sources */,
 				68D495422A3A50CF003F2454 /* RatingView.swift in Sources */,
 				680F74462A37B7EE0019AA76 /* BookwormApp.swift in Sources */,
