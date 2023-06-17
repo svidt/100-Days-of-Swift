@@ -14,9 +14,15 @@ struct AddBookView: View {
     @State private var title = ""
     @State private var author = ""
     @State private var rating = 3
-    @State private var genre = ""
+    @State private var genre = "Fantasy"
     @State private var review = ""
     
+//    @State private var date = Date()
+    
+//    var date: String {
+//        Date().formatted()
+//    }
+
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
     var body: some View {
@@ -39,6 +45,11 @@ struct AddBookView: View {
                     RatingView(rating: $rating)
                 } header: {
                     Text("Write a review")
+                } footer: {
+                    HStack {
+                        Spacer()
+                        Text("\(Date.now.formatted())")
+                    }
                 }
                 
                 Section {
@@ -50,10 +61,12 @@ struct AddBookView: View {
                         newBook.rating = Int16(rating)
                         newBook.genre = genre
                         newBook.review = review
+                        newBook.date = Date.now
                         
                         try? moc.save()
                         dismiss()
                     }
+                    .disabled(title.isEmpty || author.isEmpty)
                 }
             }
             .navigationTitle("Add Book")

@@ -15,6 +15,7 @@ struct DetailView: View {
     @State private var showingDeleteAlert = false
     
     var body: some View {
+        
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
                 Image(book.genre ?? "Fantasy")
@@ -41,6 +42,9 @@ struct DetailView: View {
             
             RatingView(rating: .constant(Int(book.rating)))
                 .font(.largeTitle)
+
+            Text("\(book.date!)" ?? "No date")
+            
         }
         .navigationTitle(book.title ?? "Unknown Book")
         .navigationBarTitleDisplayMode(.inline)
