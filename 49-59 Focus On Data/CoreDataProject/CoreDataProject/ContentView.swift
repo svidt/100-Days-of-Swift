@@ -2,33 +2,36 @@
 //  ContentView.swift
 //  CoreDataProject
 //
-//  Created by Kristian Emil Hansen Svidt on 19/06/2023.
+//  Created by Svidt on 19/06/2023.
 //
 
+
+import CoreData
 import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
-    
-    @FetchRequest(sortDescriptors: []) var wizards: FetchedResults<Wizard>
+    @State private var lastNameFiler = "A"
     
     var body: some View {
         VStack {
-            List(wizards, id: \.self) { wizard in
-                Text(wizard.name ?? "Unknown")
-            }
+                // list of matching singers
+            FilteredList(filter: lastNameFiler)
             
-            Button("Add") {
-                let wizard = Wizard(context: moc)
-                wizard.name = "Harry Potter"
-            }
-            
-            Button("Save") {
-                do {
-                    try moc.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
+            Button("Add Examples") {
+                let taylor = Singer(context: moc)
+                taylor.firstName = "Taylor"
+                taylor.lastName = "Swift"
+                
+                let ed = Singer(context: moc)
+                taylor.firstName = "Ed"
+                taylor.lastName = "Sheeran"
+                
+                let adele = Singer(context: moc)
+                taylor.firstName = "Adele"
+                taylor.lastName = "Adkins"
+                
+                try? moc.save()
             }
             
             
@@ -40,7 +43,6 @@ struct ContentView: View {
 //            }
             
         }
-        .padding()
     }
 }
 
