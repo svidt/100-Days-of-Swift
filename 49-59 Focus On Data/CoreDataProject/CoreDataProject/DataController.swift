@@ -1,6 +1,6 @@
 //
 //  DataController.swift
-//  Bookworm
+//  CoreDataProject
 //
 //  Created by Svidt on 12/06/2023.
 //
@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 class DataController: ObservableObject {
-    let container = NSPersistentContainer(name: "CoreDataProjectApp")
+    let container = NSPersistentContainer(name: "CoreDataProject")
 
     init() {
         container.loadPersistentStores { description, error in
@@ -17,7 +17,7 @@ class DataController: ObservableObject {
                 print("Core Data failed to load: \(error.localizedDescription)")
             }
             
-            self.container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+//            self.container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         }
     }
 }
