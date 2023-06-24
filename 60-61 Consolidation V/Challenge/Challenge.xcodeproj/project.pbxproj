@@ -11,6 +11,8 @@
 		68D2D3302A464B8E00840B04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2D32F2A464B8E00840B04 /* ContentView.swift */; };
 		68D2D3322A464B9000840B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68D2D3312A464B9000840B04 /* Assets.xcassets */; };
 		68D2D3362A464B9000840B04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68D2D3352A464B9000840B04 /* Preview Assets.xcassets */; };
+		68D2D3412A46589200840B04 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2D3402A46589200840B04 /* User.swift */; };
+		68D2D3432A46593400840B04 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2D3422A46593400840B04 /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		68D2D3312A464B9000840B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68D2D3332A464B9000840B04 /* Challenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Challenge.entitlements; sourceTree = "<group>"; };
 		68D2D3352A464B9000840B04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		68D2D3402A46589200840B04 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		68D2D3422A46593400840B04 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				68D2D32D2A464B8E00840B04 /* ChallengeApp.swift */,
 				68D2D32F2A464B8E00840B04 /* ContentView.swift */,
+				68D2D3422A46593400840B04 /* Friend.swift */,
+				68D2D3402A46589200840B04 /* User.swift */,
 				68D2D3312A464B9000840B04 /* Assets.xcassets */,
 				68D2D3332A464B9000840B04 /* Challenge.entitlements */,
 				68D2D3342A464B9000840B04 /* Preview Content */,
@@ -141,6 +147,8 @@
 			files = (
 				68D2D3302A464B8E00840B04 /* ContentView.swift in Sources */,
 				68D2D32E2A464B8E00840B04 /* ChallengeApp.swift in Sources */,
+				68D2D3412A46589200840B04 /* User.swift in Sources */,
+				68D2D3432A46593400840B04 /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
