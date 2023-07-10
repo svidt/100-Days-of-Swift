@@ -12,12 +12,24 @@ import SwiftUI
 struct ContentView: View {
     @State private var image: Image?
     
+    @State private var imagePicker: Image?
+    @State private var showingImagePicker = false
+    
     @State private var blurAmount = 0.0
     @State private var showingConfirmation = false
     @State private var backgroundColor = Color.yellow
     
     var body: some View {
         VStack {
+            imagePicker?
+                .resizable()
+                .scaledToFit()
+            
+            Button("Select Image") {
+                showingImagePicker = true
+            }
+            
+            
             image?
                 .resizable()
                 .scaledToFit()
@@ -45,6 +57,9 @@ struct ContentView: View {
             }
             
         }
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker()
+        }
         .onAppear(perform: loadImage)
         .onChange(of: blurAmount) { newValue in
             print("New value is \(newValue)")
@@ -56,10 +71,23 @@ struct ContentView: View {
         let beginImage = CIImage(image: inputImage)
         
         let context = CIContext()
-        let currentFilter = CIFilter.twirlDistortion()
+        let currentFilter = CIFilter.crystallize()
         currentFilter.inputImage = beginImage
-        currentFilter.radius = 1000
-        currentFilter.center = CGPoint(x: inputImage.size.width / 2, y: inputImage.size.height / 2)
+        
+        let amount = 1.0
+        let inputKeys = currentFilter.inputKeys
+        
+        if inputKeys.contains(kCIInputIntensityKey) {
+            currentFilter.setValue(amount, forKey: kCIInputIntensityKey)
+        }
+        
+        if inputKeys.contains(kCIInputRadiusKey) {
+            currentFilter.setValue(amount * 200, forKey: kCIInputRadiusKey)
+        }
+        
+        if inputKeys.contains(kCIInputScaleKey) {
+            currentFilter.setValue(amount * 10, forKey: kCIInputScaleKey)
+        }
         
         guard let outputImage = currentFilter.outputImage else { return }
         
