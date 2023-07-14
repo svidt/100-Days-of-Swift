@@ -9,8 +9,20 @@ import PhotosUI
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-    class Coordinator {
+    @Binding var image: UIImage?
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
         
+        
+        var parent: ImagePicker
+        
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            
+        }
     }
 
     func makeUIViewController(context: Context) -> PHPickerViewController {
@@ -18,6 +30,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         config.filter = .images
         
         let picker = PHPickerViewController(configuration: config)
+        picker.delegate = context.coordinator
         return picker
     }
     
@@ -26,5 +39,10 @@ struct ImagePicker: UIViewControllerRepresentable {
     
 //      Type this to trigger a helpful error message, that will fill out the correct code:
 //      typealias UIViewControllerType = PHPickerViewController
+    
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
     
 }
