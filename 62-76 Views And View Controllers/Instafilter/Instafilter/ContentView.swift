@@ -57,6 +57,13 @@ struct ContentView: View {
                 blurAmount = Double(.random(in: 0...20))
             }
             
+            Button("Save Image") {
+                guard let inputImage = inputImage else { return }
+                
+                let imageSaver = ImageSaver()
+                imageSaver.writeToPhotoAlbum(image: inputImage)
+            }
+            
         }
         .sheet(isPresented: $showingImagePicker) {
             ImagePicker(image: $inputImage)
@@ -72,6 +79,7 @@ struct ContentView: View {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
         
+        UIImageWriteToSavedPhotosAlbum(inputImage, nil, nil, nil)
     }
     
 //    func loadImage() {
