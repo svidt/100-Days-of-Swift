@@ -5,6 +5,7 @@
 //  Created by Svidt on 10/07/2023.
 //
 
+
 import PhotosUI
 import SwiftUI
 
@@ -12,8 +13,6 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
-        
-        
         var parent: ImagePicker
         
         init(_ parent: ImagePicker) {
@@ -44,10 +43,6 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
-    
-//      Type this to trigger a helpful error message. This will fill out the correct code:
-//      typealias UIViewControllerType = PHPickerViewController
-    
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
