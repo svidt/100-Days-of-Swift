@@ -2,7 +2,7 @@
 //  MapsView.swift
 //  BucketList
 //
-//  Created by Kristian Emil Hansen Svidt on 26/07/2023.
+//  Created by Svidt on 26/07/2023.
 //
 
 import MapKit

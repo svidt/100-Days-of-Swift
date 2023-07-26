@@ -2,7 +2,7 @@
 //  BucketListApp.swift
 //  BucketList
 //
-//  Created by Kristian Emil Hansen Svidt on 24/07/2023.
+//  Created by Svidt on 24/07/2023.
 //
 
 import SwiftUI

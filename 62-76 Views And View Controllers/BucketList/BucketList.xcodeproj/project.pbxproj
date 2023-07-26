@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		68730FA42A712AB100BEA2D0 /* MapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68730FA32A712AB100BEA2D0 /* MapsView.swift */; };
+		68730FA62A7131A700BEA2D0 /* BioAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68730FA52A7131A600BEA2D0 /* BioAuth.swift */; };
 		68DF8E4F2A6E8CEF007E5CA4 /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DF8E4E2A6E8CEF007E5CA4 /* BucketListApp.swift */; };
 		68DF8E512A6E8CEF007E5CA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DF8E502A6E8CEF007E5CA4 /* ContentView.swift */; };
 		68DF8E532A6E8CF1007E5CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68DF8E522A6E8CF1007E5CA4 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		68730FA32A712AB100BEA2D0 /* MapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsView.swift; sourceTree = "<group>"; };
+		68730FA52A7131A600BEA2D0 /* BioAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioAuth.swift; sourceTree = "<group>"; };
 		68DF8E4B2A6E8CEF007E5CA4 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68DF8E4E2A6E8CEF007E5CA4 /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		68DF8E502A6E8CEF007E5CA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				68DF8E502A6E8CEF007E5CA4 /* ContentView.swift */,
 				68DF8E5C2A6EA1E4007E5CA4 /* LoadingState.swift */,
 				68730FA32A712AB100BEA2D0 /* MapsView.swift */,
+				68730FA52A7131A600BEA2D0 /* BioAuth.swift */,
 				68DF8E522A6E8CF1007E5CA4 /* Assets.xcassets */,
 				68DF8E542A6E8CF1007E5CA4 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 				68730FA42A712AB100BEA2D0 /* MapsView.swift in Sources */,
 				68DF8E512A6E8CEF007E5CA4 /* ContentView.swift in Sources */,
 				68DF8E4F2A6E8CEF007E5CA4 /* BucketListApp.swift in Sources */,
+				68730FA62A7131A700BEA2D0 /* BioAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +282,7 @@
 				DEVELOPMENT_TEAM = 9Y4U7GC37R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -307,6 +312,7 @@
 				DEVELOPMENT_TEAM = 9Y4U7GC37R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
