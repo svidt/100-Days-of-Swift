@@ -48,6 +48,11 @@ struct ContentView: View {
                             Spacer()
                             Image(systemName: "\(word.count).circle")
                         }
+                        .accessibilityElement()
+                        .accessibilityLabel("\(word), \(word.count) letters")
+                        // With a longer pause between the two VoiceOver
+//                        .accessibilityLabel(word)
+//                        .accessibilityHint("\(word.count) letters")
                     }
                 }
             }
