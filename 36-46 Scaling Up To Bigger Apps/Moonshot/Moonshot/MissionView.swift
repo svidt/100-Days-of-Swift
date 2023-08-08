@@ -48,6 +48,9 @@ struct MissionView: View {
                             .padding(.bottom, 5)
                     }
                     .padding(.horizontal)
+                    .accessibilityElement()
+                    .accessibilityLabel("\(mission.displayName), Mission Highlights")
+                    .accessibilityHint(mission.description)
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
@@ -76,6 +79,9 @@ struct MissionView: View {
                                     }
                                     .padding(.horizontal)
                                 }
+                                .accessibilityElement()
+                                .accessibilityLabel("Crew information, \(crewMember.astronaut.name), \(crewMember.role)")
+                                .accessibilityHint("Click to learn more")
                             }
                         }
                     }

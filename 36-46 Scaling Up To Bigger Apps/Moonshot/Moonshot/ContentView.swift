@@ -47,6 +47,9 @@ struct ContentView: View {
                                 .stroke(.lightBackground)
                                      )
                         }
+                        .accessibilityElement()
+                        .accessibilityLabel("\(mission.displayName) mission")
+                        .accessibilityHint(mission.formattedLaunchDate)
                     }
                 }
                 .padding([.horizontal, .bottom])
