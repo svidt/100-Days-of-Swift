@@ -30,13 +30,17 @@ struct ContentView: View {
                                 .font(.subheadline)
                             
                         }
-                    }.listRowBackground( item.type == "Personal" ? LinearGradient(
+                    }
+                    .listRowBackground( item.type == "Personal" ? LinearGradient(
                         gradient: Gradient(colors: [.white, .green.opacity(colorIntensity(amount: item.amount))]),
                         startPoint: .leading,
                         endPoint: .trailing) : LinearGradient(
                             gradient: Gradient(colors: [.white, .blue.opacity(colorIntensity(amount: item.amount))]),
                             startPoint: .leading,
                             endPoint: .trailing))
+                    .accessibilityElement()
+                    .accessibilityLabel("\(item.name), \(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD")) \(item.type)")
+                    .accessibilityHint("\(item.type) category")
                 }
                 .onDelete(perform: removeItems)
             }
