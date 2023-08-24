@@ -2,43 +2,40 @@
 //  ContentView.swift
 //  HotProspects
 //
-//  Created by Kristian Emil Hansen Svidt on 17/08/2023.
+//  Created by Svidt on 17/08/2023.
 //
 
 import SwiftUI
 
-@MainActor class User: ObservableObject {
-    @Published var name = "Taylor Swift"
-}
-
-struct EditView: View {
-    @EnvironmentObject var user: User
-    
-    var body: some View {
-        TextField("Name", text: $user.name)
-    }
-}
-
-struct DisplayView: View {
-    @EnvironmentObject var user: User
-    
-    var body: some View {
-        Text(user.name)
-    }
-}
 
 struct ContentView: View {
     
-    @StateObject private var user = User()
+    @StateObject var prospects = Prospects()
     
     var body: some View {
-        VStack {
-            EditView()
-            DisplayView()
+        TabView {
+            ProspectsView(filter: .none)
+                .tabItem {
+                    Label("Everyone", systemImage: "person.3")
+                }
+            ProspectsView(filter: .contacted)
+                .tabItem {
+                    Label("Contacted", systemImage: "checkmark.circle")
+                }
+            ProspectsView(filter: .uncontacted)
+                .tabItem {
+                    Label("Uncontacted", systemImage: "questionmark.diamond")
+                }
+            
+            MeView()
+                .tabItem {
+                    Label("Me", systemImage: "person.crop.square")
+                }
         }
-        .environmentObject(user)
+        .environmentObject(prospects)
         
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
