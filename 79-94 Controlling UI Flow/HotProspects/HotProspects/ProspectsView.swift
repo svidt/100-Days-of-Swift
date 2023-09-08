@@ -32,10 +32,10 @@ struct ProspectsView: View {
                         }
                         Spacer()
                         Image(systemName: prospect.isContacted == true ? "person.fill.checkmark" : "person.fill.xmark")
-                            .frame(width: 50, height: 50)
-                            .background(.yellow)
+                            .frame(width: 40, height: 40)
+                            .background(prospect.isContacted == true ? .green : .blue)
                             .clipShape(Circle())
-                            .foregroundColor(prospect.isContacted == true ? .green : .blue)
+                            .foregroundColor(.white)
                     }
                     .swipeActions {
                         if prospect.isContacted {
