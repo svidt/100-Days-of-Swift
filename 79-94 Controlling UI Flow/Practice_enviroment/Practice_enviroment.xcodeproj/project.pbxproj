@@ -12,6 +12,7 @@
 		6816F8112AAAF17000C5FE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6816F8102AAAF17000C5FE19 /* Assets.xcassets */; };
 		6816F8142AAAF17000C5FE19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6816F8132AAAF17000C5FE19 /* Preview Assets.xcassets */; };
 		68BA81812AAB2DB500CB32B1 /* practice_item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BA81802AAB2DB500CB32B1 /* practice_item.swift */; };
+		68F8C8A02AAB56CE0022D13A /* practice_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F8C89F2AAB56CE0022D13A /* practice_view.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		6816F8102AAAF17000C5FE19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6816F8132AAAF17000C5FE19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68BA81802AAB2DB500CB32B1 /* practice_item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice_item.swift; sourceTree = "<group>"; };
+		68F8C89F2AAB56CE0022D13A /* practice_view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice_view.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				6816F80C2AAAF16E00C5FE19 /* Practice_enviromentApp.swift */,
 				6816F80E2AAAF16E00C5FE19 /* ContentView.swift */,
+				68F8C89F2AAB56CE0022D13A /* practice_view.swift */,
 				68BA81802AAB2DB500CB32B1 /* practice_item.swift */,
 				6816F8102AAAF17000C5FE19 /* Assets.xcassets */,
 				6816F8122AAAF17000C5FE19 /* Preview Content */,
@@ -143,6 +146,7 @@
 				6816F80F2AAAF16E00C5FE19 /* ContentView.swift in Sources */,
 				68BA81812AAB2DB500CB32B1 /* practice_item.swift in Sources */,
 				6816F80D2AAAF16E00C5FE19 /* Practice_enviromentApp.swift in Sources */,
+				68F8C8A02AAB56CE0022D13A /* practice_view.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

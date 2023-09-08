@@ -12,25 +12,38 @@ struct ContentView: View {
     @StateObject var info = practice_item()
     
     var body: some View {
-        
-        VStack {
-            HStack {
-                Text("\(info.name)")
-                Image(systemName: info.enrolled == true ? "checkmark.circle.fill" : "checkmark.circle")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
+        NavigationView {
+            VStack {
+                Text("\(info.number)")
+                    .font(.largeTitle)
+                HStack {
+                    Text("\(info.name)")
+                    Image(systemName: info.enrolled == true ? "checkmark.circle.fill" : "checkmark.circle")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                }
+                Button {
+                    info.enrolled.toggle()
+                } label: {
+                    Image(systemName: "paperplane.fill").scaleEffect(CGSize(width: 1.5, height: 1.5))
+                        .frame(width: 50, height: 50)
+                }
+                .padding(10)
+                .background(.green)
+                .clipShape(Circle())
+                .foregroundColor(.white)
+                
+                NavigationLink(destination: practice_view(item: info), label: { Text("Enter here")
+                })
+                .disabled(info.enrolled == true ? false : true)
+                NavigationLink(destination: practice_view(item: info), label: { Text("Sneak peak..")})
             }
-            Button {
-                info.enrolled.toggle()
-            } label: {
-                Image(systemName: "paperplane.fill").scaleEffect(CGSize(width: 1.5, height: 1.5))
-                    .frame(width: 50, height: 50)
-            }
-            .padding(10)
-            .background(.green)
-            .clipShape(Circle())
-            .foregroundColor(.white)
+            
+                
+            
+            
         }
+        
     }
 }
 
