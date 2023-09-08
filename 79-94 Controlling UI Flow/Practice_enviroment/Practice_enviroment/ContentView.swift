@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var info = practice_item()
+    @State var animatedSize = 1.5
     
     var body: some View {
         NavigationView {
@@ -22,24 +23,35 @@ struct ContentView: View {
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
                 }
-                Button {
-                    info.enrolled.toggle()
-                } label: {
-                    Image(systemName: "paperplane.fill").scaleEffect(CGSize(width: 1.5, height: 1.5))
-                        .frame(width: 50, height: 50)
+                HStack {
+                    Button("-") {
+                        animatedSize -= 0.5
+                    }
+                    Button {
+                        info.enrolled.toggle()
+                    } label: {
+                        Image(systemName: "paperplane.fill").scaleEffect(CGSize(width:
+                        animatedSize, height: animatedSize))
+                            .frame(width: 50, height: 50)
+                    }
+                    .padding(10)
+                    .background(.green)
+                    .clipShape(Circle())
+                    .foregroundColor(.white)
+                    
+                    Button("+") {
+                        animatedSize += 0.5
+                    }
                 }
-                .padding(10)
-                .background(.green)
-                .clipShape(Circle())
-                .foregroundColor(.white)
                 
                 NavigationLink(destination: practice_view(item: info), label: { Text("Enter here")
                 })
                 .disabled(info.enrolled == true ? false : true)
                 NavigationLink(destination: practice_view(item: info), label: { Text("Sneak peak..")})
+                
             }
             
-                
+            
             
             
         }
