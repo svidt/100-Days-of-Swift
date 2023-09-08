@@ -23,11 +23,19 @@ struct ProspectsView: View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: prospect.isContacted == true ? "person.fill.checkmark" : "person.fill.xmark")
+                            .frame(width: 50, height: 50)
+                            .background(.yellow)
+                            .clipShape(Circle())
+                            .foregroundColor(prospect.isContacted == true ? .green : .blue)
                     }
                     .swipeActions {
                         if prospect.isContacted {
