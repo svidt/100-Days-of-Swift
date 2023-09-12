@@ -65,12 +65,12 @@ struct ContentView: View {
             events.append(event)
         }
         
-//        for i in stride(from: 0, to: 1, by: 0.1) {
-//            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i))
-//            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i))
-//            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 1 + i)
-//            events.append(event)
-//        }
+        for i in stride(from: 0, to: 1, by: 0.1) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i))
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i))
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 1 + i)
+            events.append(event)
+        }
         
         do {
             let pattern = try CHHapticPattern(events: events, parameters: [])
