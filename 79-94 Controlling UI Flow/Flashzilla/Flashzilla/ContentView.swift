@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var engine: CHHapticEngine?
+    @Environment(\.scenePhase) var scenePhase
 
     let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
     @State private var counter = 0
@@ -18,6 +19,17 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
+            Text("Scene Phase")
+                .padding()
+                .onChange(of: scenePhase) { newPhase in
+                    if newPhase == .active {
+                        print("Active")
+                    } else if newPhase == .inactive {
+                        print("Inactive")
+                    } else if newPhase == .background {
+                        print("Background")
+                    }
+                }
             Text("Hello!")
                 .onReceive(timer) { time in
                     if counter == 5 {
