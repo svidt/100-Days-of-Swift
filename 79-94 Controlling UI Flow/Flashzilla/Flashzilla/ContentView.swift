@@ -8,18 +8,45 @@
 import CoreHaptics
 import SwiftUI
 
+func withOptionalAnimation<Result>(_ animation: Animation? = .default, body: () throws -> Result) rethrows -> Result {
+    if UIAccessibility.isReduceMotionEnabled {
+        return try body()
+    } else {
+        return try withAnimation(animation, body)
+    }
+}
+
 struct ContentView: View {
 
     @State private var engine: CHHapticEngine?
     @Environment(\.scenePhase) var scenePhase
     
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
-
+    
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @State private var scale = 1.0
+    
+    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
+    
     let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
     @State private var counter = 0
     
     var body: some View {
         VStack {
+            
+            Text("Check transparency")
+                .padding()
+                .background(reduceTransparency ? .black : .black.opacity(0.5))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+            
+            Text("Tap to scale")
+                .scaleEffect(scale)
+                .onTapGesture {
+                    withOptionalAnimation {
+                        scale *= 1.5
+                    }
+                }
             
             HStack {
                 if accessibilityDifferentiateWithoutColor {
