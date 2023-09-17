@@ -12,12 +12,26 @@ struct ContentView: View {
 
     @State private var engine: CHHapticEngine?
     @Environment(\.scenePhase) var scenePhase
+    
+    @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
 
     let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
     @State private var counter = 0
     
     var body: some View {
         VStack {
+            
+            HStack {
+                if accessibilityDifferentiateWithoutColor {
+                    Image(systemName: "checkmark.circle")
+                }
+                
+                Text("Success")
+            }
+            .padding()
+            .background(accessibilityDifferentiateWithoutColor ? .black : .green)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
             
             Text("Scene Phase")
                 .padding()
