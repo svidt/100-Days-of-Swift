@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Flashzilla
 //
-//  Created by Kristian Emil Hansen Svidt on 13/09/2023.
+//  Created by Svidt on 13/09/2023.
 //
 
 import CoreHaptics
@@ -32,6 +32,8 @@ struct ContentView: View {
     @State private var counter = 0
     
     var body: some View {
+        
+        CardView(card: Card.example)
         VStack {
             
             Text("Check transparency")

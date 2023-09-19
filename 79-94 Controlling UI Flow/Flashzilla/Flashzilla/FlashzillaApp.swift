@@ -2,7 +2,7 @@
 //  FlashzillaApp.swift
 //  Flashzilla
 //
-//  Created by Kristian Emil Hansen Svidt on 13/09/2023.
+//  Created by Svidt on 13/09/2023.
 //
 
 import SwiftUI
