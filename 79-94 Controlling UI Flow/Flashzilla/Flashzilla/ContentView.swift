@@ -50,8 +50,12 @@ struct ContentView: View {
                 VStack {
                     ZStack {
                         ForEach(0..<cards.count, id: \.self) { index in
-                            CardView(card: cards[index])
-                                .stacked(at: index, in: cards.count)
+                            CardView(card: cards[index]) {
+                                withAnimation {
+                                    removeCard(at: index)
+                                }
+                            }
+                            .stacked(at: index, in: cards.count)
                             
                         }
                     }
@@ -174,6 +178,11 @@ struct ContentView: View {
             print("Failed to play \(error.localizedDescription)")
         }
     }
+    
+    func removeCard(at index: Int) {
+        cards.remove(at: index)
+    }
+    
     
     func simpleSuccess() {
         let generator = UINotificationFeedbackGenerator()
