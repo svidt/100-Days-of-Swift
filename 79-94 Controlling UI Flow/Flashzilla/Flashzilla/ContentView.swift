@@ -26,9 +26,13 @@ func withOptionalAnimation<Result>(_ animation: Animation? = .default, body: () 
 struct ContentView: View {
     
     @State private var cards = Array<Card>(repeating: Card.example, count: 10)
+    
+    @State private var timeRemaining = 100
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     @State private var engine: CHHapticEngine?
     @Environment(\.scenePhase) var scenePhase
+    @State private var isActive = true
     
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
     
@@ -39,7 +43,6 @@ struct ContentView: View {
     
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     
-    let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
     @State private var counter = 0
     
     var body: some View {
@@ -50,6 +53,15 @@ struct ContentView: View {
                     .resizable()
                     .ignoresSafeArea()
                 VStack {
+                    
+                    Text("Time: \(timeRemaining)")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 5)
+                        .background(.black.opacity(0.75))
+                        .clipShape(Capsule())
+                    
                     ZStack {
                         ForEach(0..<cards.count, id: \.self) { index in
                             CardView(card: cards[index]) {
@@ -60,6 +72,15 @@ struct ContentView: View {
                             .stacked(at: index, in: cards.count)
                             
                         }
+                    }
+                    .allowsHitTesting(timeRemaining > 0)
+                    
+                    if cards.isEmpty {
+                        Button("Reset cards", action: resetCards)
+                            .padding()
+                            .background(.white)
+                            .foregroundColor(.black)
+                            .clipShape(Capsule())
                     }
                 }
                 
@@ -84,6 +105,22 @@ struct ContentView: View {
                     }
                 }
                 
+            }
+            .onReceive(timer) { time in
+                guard isActive else { return }
+                if timeRemaining > 0 {
+                    timeRemaining -= 1
+                }
+            }
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .active {
+                    if cards.isEmpty == false {
+                        isActive = true
+                    }
+                    
+                } else {
+                    isActive = false
+                }
             }
             
             VStack {
@@ -205,6 +242,16 @@ struct ContentView: View {
     
     func removeCard(at index: Int) {
         cards.remove(at: index)
+        
+        if cards.isEmpty {
+            isActive = false
+        }
+    }
+    
+    func resetCards() {
+        cards = Array<Card>(repeating: Card.example, count: 10)
+        timeRemaining = 100
+        isActive = true
     }
     
     
