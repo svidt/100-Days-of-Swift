@@ -37,6 +37,8 @@ struct ContentView: View {
     
     @Environment(\.accessibilityReduceTransparency) var reduceTransparency
     
+    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+    
     let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
     @State private var counter = 0
     
@@ -60,6 +62,28 @@ struct ContentView: View {
                         }
                     }
                 }
+                
+                if differentiateWithoutColor {
+                    VStack {
+                        Spacer()
+                        
+                        HStack {
+                            Image(systemName: "xmark.circle")
+                                .padding()
+                                .background(.black.opacity(0.7))
+                                .clipShape(Circle())
+                            Spacer()
+                            Image(systemName: "checkmark.circle")
+                                .padding()
+                                .background(.black.opacity(0.7))
+                                .clipShape(Circle())
+                        }
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .padding()
+                    }
+                }
+                
             }
             
             VStack {
