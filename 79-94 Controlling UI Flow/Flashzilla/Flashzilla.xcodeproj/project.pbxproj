@@ -11,6 +11,7 @@
 		6803732C2AB0BD4300CC8AF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6803732B2AB0BD4300CC8AF0 /* ContentView.swift */; };
 		6803732E2AB0BD4500CC8AF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6803732D2AB0BD4500CC8AF0 /* Assets.xcassets */; };
 		680373312AB0BD4500CC8AF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680373302AB0BD4500CC8AF0 /* Preview Assets.xcassets */; };
+		68D393822AE74A0E0043D891 /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D393812AE74A0E0043D891 /* EditCards.swift */; };
 		68FE69682AB981FB003F253D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FE69672AB981FB003F253D /* Card.swift */; };
 		68FE696A2AB985D3003F253D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FE69692AB985D3003F253D /* CardView.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +22,7 @@
 		6803732B2AB0BD4300CC8AF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6803732D2AB0BD4500CC8AF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		680373302AB0BD4500CC8AF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		68D393812AE74A0E0043D891 /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 		68FE69672AB981FB003F253D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		68FE69692AB985D3003F253D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +61,7 @@
 				6803732B2AB0BD4300CC8AF0 /* ContentView.swift */,
 				68FE69672AB981FB003F253D /* Card.swift */,
 				68FE69692AB985D3003F253D /* CardView.swift */,
+				68D393812AE74A0E0043D891 /* EditCards.swift */,
 				6803732D2AB0BD4500CC8AF0 /* Assets.xcassets */,
 				6803732F2AB0BD4500CC8AF0 /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 				6803732C2AB0BD4300CC8AF0 /* ContentView.swift in Sources */,
 				68FE69682AB981FB003F253D /* Card.swift in Sources */,
 				68FE696A2AB985D3003F253D /* CardView.swift in Sources */,
+				68D393822AE74A0E0043D891 /* EditCards.swift in Sources */,
 				6803732A2AB0BD4300CC8AF0 /* FlashzillaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
