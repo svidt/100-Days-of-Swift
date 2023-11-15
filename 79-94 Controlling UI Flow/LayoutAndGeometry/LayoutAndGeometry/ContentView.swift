@@ -2,31 +2,44 @@
 //  ContentView.swift
 //  LayoutAndGeometry
 //
-//  Created by Kristian Emil Hansen Svidt on 24/10/2023.
+//  Created by Svidt on 24/10/2023.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            HStack(alignment: .firstTextBaseline) {
-                Text("Hello")
-                    .font(.largeTitle)
-                Text("Hello")
-                    .font(.title)
-                Text("Hello")
-                    .font(.title2)
-                
-            }
+extension VerticalAlignment {
+    enum MidAccountAndName: AlignmentID {
+        static func defaultValue(in context: ViewDimensions) -> CGFloat {
+            context[.top]
         }
-        .padding()
     }
+    
+    static let midAccountAndName = VerticalAlignment(MidAccountAndName.self)
 }
 
-#Preview {
-    ContentView()
+struct ContentView: View {
+    var body: some View {
+        HStack(alignment: .midAccountAndName) {
+            VStack {
+                Text("@svidt")
+                    .alignmentGuide(.midAccountAndName) { dimension in dimension[VerticalAlignment.center] }
+                Image("drone-show")
+                    .resizable()
+                    .frame(width: 64, height: 64)
+            }
+            
+            VStack {
+                Text("Full name:")
+                Text("emil svidt")
+                    .alignmentGuide(.midAccountAndName) { dimension in dimension[VerticalAlignment.center] }
+                    .textCase(.uppercase)
+                    .font(.largeTitle)
+            }
+            
+        }
+    }
 }
+    
+    #Preview {
+        ContentView()
+    }
