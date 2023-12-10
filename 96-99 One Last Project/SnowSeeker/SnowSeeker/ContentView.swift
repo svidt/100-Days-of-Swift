@@ -7,20 +7,29 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct UserView: View {
     var body: some View {
-        NavigationView {
-            NavigationLink {
-                Text("Secondary")
-            } label: {
-                
-                Text("Hello World")
+        Group {
+            Text("Name: Svidt")
+            Text("Country: DK")
+            Text("Pets: NONE")
+        }
+        .font(.title)
+    }
+}
+
+struct ContentView: View {
+    
+    //    @State private var layoutVertically = false
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
+    var body: some View {
+        if sizeClass == .compact {
+            VStack {
+                UserView()
             }
-                .navigationTitle("Primary")
-         
-            Text("Third")
-            
-            Text("Forth")
+        } else {
+            HStack { UserView()}
         }
     }
 }
