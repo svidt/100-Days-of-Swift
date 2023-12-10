@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  SnowSeeker
 //
-//  Created by Kristian Emil on 06/12/2023.
+//  Created by Svidt on 06/12/2023.
 //
 
 import SwiftUI
@@ -20,16 +20,13 @@ struct UserView: View {
 
 struct ContentView: View {
     
-    //    @State private var layoutVertically = false
-    @Environment(\.horizontalSizeClass) var sizeClass
+    @State private var searchText = ""
     
     var body: some View {
-        if sizeClass == .compact {
-            VStack {
-                UserView()
-            }
-        } else {
-            HStack { UserView()}
+        NavigationView {
+            Text("Searching for \(searchText)")
+                .searchable(text: $searchText, prompt: "Look for something")
+                .navigationTitle("Searching")
         }
     }
 }
