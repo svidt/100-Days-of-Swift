@@ -7,26 +7,34 @@
 
 import SwiftUI
 
-struct UserView: View {
-    var body: some View {
-        Group {
-            Text("Name: Svidt")
-            Text("Country: DK")
-            Text("Pets: NONE")
-        }
-        .font(.title)
-    }
-}
 
 struct ContentView: View {
-    
-    @State private var searchText = ""
+    let resorts: [Resort] = Bundle.main.decode("resorts.json")
     
     var body: some View {
         NavigationView {
-            Text("Searching for \(searchText)")
-                .searchable(text: $searchText, prompt: "Look for something")
-                .navigationTitle("Searching")
+            List(resorts) { resort in
+                NavigationLink {
+                    Text(resort.name)
+                } label: {
+                    Image(resort.country)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 25)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.black, lineWidth: 1)
+                        }
+                    VStack(alignment: .leading) {
+                        Text(resort.name)
+                            .font(.headline)
+                        Text("\(resort.runs) runs")
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .navigationTitle("Resorts")
         }
     }
 }
